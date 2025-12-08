@@ -4,215 +4,578 @@
 <head>
     <meta charset="UTF-8">
     <title>Pierre Bouchet - Academic Website</title>
+
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #fafafa;
-            color: #232;
-            margin: 0;
-            line-height: 1.6;
+        /* ---------- COLOR VARIABLES (DEFAULT: DARK THEME) ---------- */
+        :root {
+            --bg-color: #0f1116;
+            --bg-elevated: #161a22;
+            --bg-elevated-soft: #14171f;
+            --text-color: #e6e6e6;
+            --muted-text: #a4a8b5;
+            --accent: #78b2ff;
+            --accent-strong: #6ab8ff;
+            --accent-soft: #1d2330;
+            --border-soft: #1f2430;
+            --chip-bg: #1b1f29;
+            --link-color: #6ab8ff;
+            --link-hover: #9cd3ff;
         }
+
+        body.light-theme {
+            --bg-color: #f5f6fa;
+            --bg-elevated: #ffffff;
+            --bg-elevated-soft: #ffffff;
+            --text-color: #171821;
+            --muted-text: #4b4f5c;
+            --accent: #245ca8;
+            --accent-strong: #1e4f90;
+            --accent-soft: #e3ecff;
+            --border-soft: #d2d8e5;
+            --chip-bg: #eef2fb;
+            --link-color: #245ca8;
+            --link-hover: #163a71;
+        }
+
+        /* ---------- GLOBAL ---------- */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+            background: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.65;
+        }
+
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--link-hover);
+        }
+
+        /* ---------- TOP BAR ---------- */
         .topbar {
-            background: #fff;
+            background: var(--bg-elevated-soft);
+            border-bottom: 1px solid var(--border-soft);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 26px 36px 10px 36px;
-            box-shadow: 0px 2px 3px rgba(0,0,0,0.04);
+            padding: 16px 34px;
             position: sticky;
             top: 0;
-            z-index: 20;
+            z-index: 50;
         }
+
         .name {
-            font-size: 2.2em;
-            font-weight: bold;
-            color: #244e81;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent);
         }
+
+        .top-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
         .top-links {
             display: flex;
-            gap: 15px;
-            align-items: center;
+            gap: 10px;
         }
+
         .top-link {
             display: inline-flex;
             align-items: center;
-            gap: 5px;
-            color: #232;
-            text-decoration: none;
-            background: #f5faff;
-            padding: 4px 11px;
-            border-radius: 9px;
-            font-size: 1.09em;
-            transition: background .16s;
-        }
-        .top-link:hover {
-            background: #dbeffa;
-            color: #204e88;
-        }
-        .icon {
-            width: 22px;
-            height: 22px;
-            vertical-align: middle;
-        }
-        /* Profile Picture */
-        .profile-pic-container {
-            text-align: center;
-            margin-top: 24px;
-        }
-        .profile-pic {
-            width: 140px;
-            border-radius: 50%;
-            border: 4px solid #eee;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-        }
-        /* TOC Navigation Bar */
-        #toc {
-            background: #f9fbff;
-            display: flex;
-            gap: 22px;
             justify-content: center;
+            background: var(--chip-bg);
+            padding: 6px 10px;
+            border-radius: 10px;
+            border: 1px solid transparent;
+            transition: 0.2s;
+        }
+
+        .top-link:hover {
+            background: var(--accent-soft);
+            border-color: var(--accent);
+        }
+
+        .icon {
+            width: 20px;
+            height: 20px;
+            filter: invert(80%);
+        }
+
+        body.light-theme .icon {
+            filter: none;
+        }
+
+        .theme-toggle {
+            border-radius: 999px;
+            border: 1px solid var(--border-soft);
+            background: var(--chip-bg);
+            color: var(--text-color);
+            padding: 5px 10px;
+            font-size: 0.85rem;
+            cursor: pointer;
+        }
+
+        /* ---------- HERO SECTION ---------- */
+        .hero {
+            position: relative;
+            min-height: 55vh;
+            display: flex;
             align-items: center;
-            padding: 13px 0 13px 0;
-            margin-bottom: 24px;
-            border-bottom: 1px solid #e3eaff;
+            justify-content: center;
+            text-align: center;
+            color: #ffffff;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(to bottom, rgba(4, 8, 20, 0.8), rgba(4, 8, 20, 0.95)),
+                url("hero-forest.jpg"); /* <-- tropical forest hero image */
+            background-size: cover;
+            background-position: center;
+            filter: saturate(1.1);
+            z-index: -1;
+        }
+
+        body.light-theme .hero::before {
+            background-image:
+                linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.35)),
+                url("hero-forest.jpg");
+        }
+
+        .hero-inner {
+            max-width: 900px;
+            padding: 40px 16px 48px 16px;
+        }
+
+        .hero-profile {
+            margin-bottom: 18px;
+        }
+
+        .profile-pic {
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 10px; /* square with subtle rounded corners */
+            border: 2px solid rgba(180, 210, 255, 0.9);
+            box-shadow: 0 0 22px rgba(120, 178, 255, 0.55); /* glow effect */
+        }
+
+        .hero-title {
+            font-size: 2.1rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: #d6deff;
+            margin-bottom: 18px;
+        }
+
+        .hero-text {
+            font-size: 0.98rem;
+            color: #d0d5eb;
+            max-width: 720px;
+            margin: 0 auto 22px auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            padding: 8px 16px;
+            border-radius: 999px;
+            border: 1px solid transparent;
+            background: var(--accent);
+            color: #020307;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+        }
+
+        .btn-secondary {
+            padding: 8px 16px;
+            border-radius: 999px;
+            border: 1px solid rgba(210, 220, 255, 0.4);
+            background: transparent;
+            color: #e5e9ff;
+            font-size: 0.95rem;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-strong);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(13, 23, 65, 0.6);
+        }
+
+        /* ---------- NAVIGATION (SECTION LINKS) ---------- */
+        .nav-sections {
+            background: var(--bg-elevated-soft);
+            border-bottom: 1px solid var(--border-soft);
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            padding: 10px 8px;
             position: sticky;
-            top: 72px;
-            z-index: 10;
+            top: 64px;
+            z-index: 40;
         }
-        #toc a {
-            font-weight: 500;
-            color: #2a65b9;
-            padding: 6px 12px;
-            border-radius: 8px;
-            transition: background .16s;
-            text-decoration: none;
+
+        .nav-sections a {
+            padding: 6px 10px;
+            border-radius: 999px;
+            font-size: 0.9rem;
+            color: var(--muted-text);
+            border: 1px solid transparent;
         }
-        #toc a:hover {
-            background: #e0eaff;
-            color: #294476;
+
+        .nav-sections a:hover {
+            color: var(--accent);
+            border-color: var(--accent-soft);
+            background: var(--accent-soft);
         }
+
+        /* ---------- SECTIONS ---------- */
         .section {
-            margin: 44px auto;
-            max-width: 780px;
-            background: #fff;
-            padding: 28px 33px;
-            border-radius: 18px;
-            box-shadow: 0 3px 10px rgba(30,40,100,0.03);
+            margin: 42px auto;
+            max-width: 880px;
+            background: var(--bg-elevated);
+            padding: 30px 32px;
+            border-radius: 16px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.32);
         }
+
         h2 {
-            color: #2a65b9;
-            margin-bottom: 15px;
-            border-bottom: 1px solid #c0d6fa;
+            color: var(--accent);
+            margin-bottom: 14px;
             padding-bottom: 8px;
-            font-size: 1.38em;
+            border-bottom: 1px solid var(--border-soft);
+            font-size: 1.45rem;
             font-weight: 700;
         }
-        ul, ol { margin-left: 28px;}
-        html { scroll-behavior: smooth;}
-        @media (max-width: 600px) {
-            .topbar, .section {padding-left: 10px; padding-right: 10px;}
-            .section {padding: 18px 8px;}
-            #toc {gap: 7px; font-size: 0.98em;}
+
+        p {
+            margin-top: 0;
+        }
+
+        ul, ol {
+            margin-left: 26px;
+        }
+
+        .muted {
+            color: var(--muted-text);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            background: var(--chip-bg);
+            color: var(--muted-text);
+            margin-right: 6px;
+            margin-bottom: 4px;
+        }
+
+        .section-subtitle {
+            font-weight: 600;
+            margin-top: 8px;
+        }
+
+        /* ---------- FIELDWORK IMAGES ---------- */
+        .fieldwork-images {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .field-img {
+            flex: 1 1 220px;
+            max-width: 48%;
+            border-radius: 10px;
+            object-fit: cover;
+            height: 190px;
+            border: 1px solid var(--border-soft);
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 780px) {
+            .topbar {
+                padding: 12px 14px;
+            }
+
+            .hero-title {
+                font-size: 1.7rem;
+            }
+
+            .section {
+                margin: 30px 10px;
+                padding: 22px 16px;
+            }
+
+            .nav-sections {
+                flex-wrap: wrap;
+                gap: 8px;
+                top: 56px;
+            }
+
+            .field-img {
+                max-width: 100%;
+            }
         }
     </style>
 </head>
 
 <body>
-    <!-- Top Bar -->
-    <div class="topbar">
-        <span class="name">Pierre Bouchet</span>
-        <div class="top-links">
-            <a class="top-link" href="https://www.researchgate.net/profile/Pierre-Bouchet-2?ev=hdr_xprf" target="_blank" title="ResearchGate">
-                <img class="icon" src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/researchgate.svg" alt="ResearchGate">
-            </a>
-            <a class="top-link" href="https://www.linkedin.com/in/pierrebouchetprofile/" target="_blank" title="LinkedIn">
-               <img class="icon" src="linkedin.svg" alt="LinkedIn">
-            </a>
-            <a class="top-link" href="https://orcid.org/0009-0000-5907-9364" target="_blank" title="ORCID">
-                <img class="icon" src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/orcid.svg" alt="ORCID">
-            </a>
+
+    <!-- TOP BAR -->
+    <header class="topbar">
+        <div class="name">Pierre Bouchet</div>
+
+        <div class="top-right">
+            <div class="top-links">
+                <a class="top-link" href="https://www.researchgate.net/profile/Pierre-Bouchet-2?ev=hdr_xprf" target="_blank" title="ResearchGate">
+                    <img class="icon" src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/researchgate.svg" alt="ResearchGate">
+                </a>
+                <a class="top-link" href="https://www.linkedin.com/in/pierrebouchetprofile/" target="_blank" title="LinkedIn">
+                    <img class="icon" src="linkedin.svg" alt="LinkedIn">
+                </a>
+                <a class="top-link" href="https://orcid.org/0009-0000-5907-9364" target="_blank" title="ORCID">
+                    <img class="icon" src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/orcid.svg" alt="ORCID">
+                </a>
+                <a class="top-link" href="https://github.com/pierrolaloune" target="_blank" title="GitHub">
+                    <img class="icon" src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/github.svg" alt="GitHub">
+                </a>
+            </div>
+
+            <button class="theme-toggle" id="themeToggle" type="button">
+                🌙 / ☀
+            </button>
         </div>
-    </div>
+    </header>
 
-    <!-- Profile Picture -->
-    <div class="profile-pic-container">
-        <img src="profile.JPG" alt="Profile picture of Pierre Bouchet" class="profile-pic">
-    </div>
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-inner">
+            <div class="hero-profile">
+                <img src="profile.JPG" alt="Profile picture of Pierre Bouchet" class="profile-pic">
+            </div>
+            <div class="hero-title">Pierre Bouchet</div>
+            <div class="hero-subtitle">PhD student in ecology & biogeography, CRBE, Université Toulouse III – Paul Sabatier</div>
+            <p class="hero-text">
+                I study how human activities reshape biodiversity patterns and functional diversity, with a particular focus on vertebrates.
+                My work combines trait-based ecology, macroecology and conservation biology to understand which species humans exploit
+                and how this affects extinction risk and ecosystem functioning.
+            </p>
+            <div class="hero-buttons">
+                <button class="btn-primary" type="button" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'});">
+                    Learn more about my research
+                </button>
+                <button class="btn-secondary" type="button" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">
+                    Contact
+                </button>
+            </div>
+        </div>
+    </section>
 
-    <!-- Table of Contents Navigation -->
-    <nav id="toc">
+    <!-- SECTION NAVIGATION -->
+    <nav class="nav-sections">
         <a href="#about">About</a>
-        <a href="#work">My Work</a>
+        <a href="#research">Research</a>
         <a href="#publications">Publications</a>
         <a href="#teaching">Teaching</a>
-        <a href="#talks">Talks & Posters</a>
+        <a href="#talks">Talks</a>
+        <a href="#outreach">Outreach</a>
+        <a href="#skills">Skills</a>
+        <a href="#fieldwork">Fieldwork</a>
         <a href="#contact">Contact</a>
     </nav>
 
-    <!-- About Section -->
-    <div class="section" id="about">
+    <!-- ABOUT -->
+    <section class="section" id="about">
         <h2>About</h2>
         <p>
-            I am a PhD student and geographer specializing in community ecology and functional diversity. 
-            My research focuses on how human activities reshape biodiversity patterns and the functional diversity of vertebrates at global and macroecological scales. 
-            More broadly, I work on trait-based ecology, macroecology, conservation biology, and the impacts of anthropogenic pressures on ecosystems.
+            I am a PhD student in ecology and biogeography at the <strong>CRBE</strong>, Université Toulouse III – Paul Sabatier (Toulouse, France),
+            supervised by <strong>Sébastien Brosse</strong> and <strong>Aurèle Toussaint</strong>.
+            My research focuses on how human uses of vertebrates (e.g. fisheries, hunting, trade, recreation) shape
+            biodiversity patterns and functional diversity at large spatial scales.
         </p>
         <p>
-            I am also actively engaged in scientific outreach through associations such as 
-            <a href="https://pintofscience.fr/" target="_blank">Pint of Science</a> 
-            and 
-            <a href="https://www.ebpt.fr/page/3177173-presentation" target="_blank">Les étoiles brillent pour tous</a>, 
-            contributing to the dissemination and accessibility of scientific knowledge. Alongside my research, I teach undergraduate courses at the University of Toulouse.
+            More broadly, I work on <strong>trait-based ecology</strong>, <strong>macroecology</strong>, and <strong>conservation biology</strong>,
+            with a particular interest in how anthropogenic pressures erode the functional space of species and
+            the ecological functions they support.
         </p>
-    </div>
+    </section>
 
-    <!-- My Work Section -->
-    <div class="section" id="work">
-        <h2>My Work</h2>
+    <!-- RESEARCH -->
+    <section class="section" id="research">
+        <h2>Research</h2>
         <p>
-I am carrying out research into the functional diversity of vertebrates in a context of biodiversity crisis. More specifically, I am looking at the anthropogenic pressures exerted on vertebrate traits (hunting, fishing, trade, etc.) and how these pressures influence the risk of vertebrate extinction or their potential to become invasive species, on a global scale. This thesis proposes a macro-ecological and inter-taxa approach to explore species exploited by man in a context of global biodiversity crisis. It's interested in identifying the functional traits of Vertebrates that favor or disfavor their use by humans and investigates how these activities influence both their risk of extinction and their potential to become invasive species. The aim is also to understand how these functional traits may change around the world, depending on local and regional human practices.        </p>
+            My thesis examines how humans selectively exploit vertebrate species and how this selection translates into
+            non-random patterns in functional trait space. I investigate:
+        </p>
         <ul>
-            <li>Trait-based approaches to study ecological communities</li>
-            <li>Analysis of biodiversity loss and functional erosion</li>
-            <li>Conservation strategies addressing global change</li>
+            <li>Which functional traits increase or reduce the probability of being used by humans (fisheries, hunting, trade, recreation).</li>
+            <li>How human use interacts with extinction risk and, conversely, with the potential to become invasive.</li>
+            <li>How these patterns vary among regions, depending on local and regional human practices and pressures.</li>
         </ul>
-    </div>
-
-    <!-- Publications Section -->
-    <div class="section" id="publications">
-        <h2>Publications</h2>
         <p>
-            <em>Coming soon — manuscript in preparation.</em><br>
+            The work adopts a <strong>macroecological, cross-taxon perspective</strong>, relying on large trait datasets,
+            global distribution information, and conservation assessments.
+        </p>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section class="section" id="publications">
+        <h2>Publications</h2>
+        <p class="muted">
+            Peer-reviewed publications: none yet (PhD in progress). Manuscripts are currently in preparation.
+        </p>
+
+        <p class="section-subtitle">Manuscript in preparation</p>
+        <p>
             <strong>Targeting morphologically unique fishes amplifies the risk of functional erosion</strong><br>
             Bouchet P., Brosse S., Toussaint A.
         </p>
-        <!-- Add more publications here as needed -->
-    </div>
 
-    <!-- Teaching Section -->
-    <div class="section" id="teaching">
+        <p class="muted">
+            Publication list will be updated here and synchronized with my ORCID profile:
+            <a href="https://orcid.org/0009-0000-5907-9364" target="_blank">0009-0000-5907-9364</a>.
+        </p>
+    </section>
+
+    <!-- TEACHING -->
+    <section class="section" id="teaching">
         <h2>Teaching</h2>
+        <p>
+            I teach undergraduate courses at Université Toulouse III – Paul Sabatier in zoology and ecology.
+        </p>
         <ul>
-            <li>Zoology (Undergraduate, University of Toulouse)</li>
-            <li>Aquatic Ecology</li>
-            <li>Chemical Ecology</li>
+            <li><strong>Zoology</strong> – 32 h/year (Licence 1)</li>
+            <li><strong>Aquatic Ecology</strong> – 15 h/year (Licence 3)</li>
+            <li><strong>Chemical Ecology</strong> – 15 h/year (Licence 3)</li>
+            <li><strong>General Ecology</strong> – 9 h/year (Licence 2)</li>
         </ul>
-    </div>
+    </section>
 
-    <!-- Talks and Posters Section -->
-    <div class="section" id="talks">
-        <h2>Talks & Posters</h2>
+    <!-- TALKS -->
+    <section class="section" id="talks">
+        <h2>Talks</h2>
         <ul>
-            <li><strong>2025, Ecology & Behaviour:</strong> "hreatened freshwater fish used by humans support unique morphological traits"</li>
-           <!-- Add more entries here as needed -->
+            <li>
+                <strong>2025 – Ecology & Behaviour</strong><br>
+                “Threatened freshwater fish used by humans support unique morphological traits.”
+            </li>
         </ul>
-    </div>
+    </section>
 
-    <!-- Contact Section -->
-    <div class="section" id="contact">
+    <!-- OUTREACH -->
+    <section class="section" id="outreach">
+        <h2>Outreach & Science Communication</h2>
+        <p>
+            I am involved in scientific outreach and public engagement, with the aim of making ecology and biodiversity research
+            accessible to a wider audience.
+        </p>
+        <ul>
+            <li>
+                <strong>Pint of Science</strong> – participation in events bringing research in ecology and biodiversity to the general public.
+            </li>
+            <li>
+                <strong>Les étoiles brillent pour tous</strong> – contribution to science popularisation activities and events.
+            </li>
+        </ul>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section" id="skills">
+        <h2>Skills</h2>
+
+        <p class="section-subtitle">Methods & topics</p>
+        <ul>
+            <li>Community and functional ecology, trait-based approaches.</li>
+            <li>Macroecology and biogeography of vertebrates.</li>
+            <li>Analysis of biodiversity loss and functional erosion.</li>
+        </ul>
+
+        <p class="section-subtitle">Quantitative & computational</p>
+        <ul>
+            <li>Statistical analysis and modelling in R.</li>
+            <li>Handling large trait and distribution datasets.</li>
+            <li>Reproducible workflows and version control (Git/GitHub).</li>
+        </ul>
+
+        <p class="section-subtitle">Fieldwork & tropical experience</p>
+        <ul>
+            <li>Fieldwork in tropical environments, including freshwater systems.</li>
+            <li>Sampling of vertebrate communities and associated environmental data.</li>
+        </ul>
+    </section>
+
+    <!-- FIELDWORK -->
+    <section class="section" id="fieldwork">
+        <h2>Fieldwork</h2>
+        <p>
+            My research includes fieldwork in tropical environments, particularly in freshwater ecosystems.
+            Below are examples of field images illustrating typical working conditions and study systems.
+        </p>
+
+        <div class="fieldwork-images">
+            <img src="fieldwork1.jpg" alt="Fieldwork image 1" class="field-img">
+            <img src="fieldwork2.jpg" alt="Fieldwork image 2" class="field-img">
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
         <h2>Contact</h2>
-        <p>Email: <a href="mailto:pierre.bouchet@utoulouse.fr">pierre.bouchet@utoulouse.fr</a></p>
-    </div>
+        <p>
+            Email: <a href="mailto:pierre.bouchet@utoulouse.fr">pierre.bouchet@utoulouse.fr</a>
+        </p>
+        <p class="muted">
+            For collaborations, questions about my work, or teaching-related enquiries,
+            feel free to reach out by email.
+        </p>
+    </section>
+
+    <!-- THEME TOGGLE SCRIPT -->
+    <script>
+        const toggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        // Optional: remember theme in localStorage
+        const savedTheme = window.localStorage.getItem('theme');
+        if (savedTheme === 'light') {
+            body.classList.add('light-theme');
+        }
+
+        toggle.addEventListener('click', () => {
+            body.classList.toggle('light-theme');
+            const mode = body.classList.contains('light-theme') ? 'light' : 'dark';
+            window.localStorage.setItem('theme', mode);
+        });
+    </script>
 
 </body>
 </html>
