@@ -5,6 +5,43 @@
     <meta charset="UTF-8">
     <title>Pierre Bouchet - Academic Website</title>
 
+    <!-- ===========================
+         SEO META TAGS (CRUCIAL)
+    ============================ -->
+    <meta name="description" content="Pierre Bouchet — PhD student in ecology and biogeography at CRBE, Université Toulouse III. Research on biodiversity, functional ecology, macroecology, and human impacts on vertebrates.">
+    <meta name="keywords" content="Pierre Bouchet, ecology, PhD, research, biodiversity, macroecology, functional ecology, CRBE, Université Toulouse III, conservation biology, freshwater fish">
+    <meta name="author" content="Pierre Bouchet">
+
+    <!-- Social and Google previews -->
+    <meta property="og:title" content="Pierre Bouchet — PhD student in Ecology & Biogeography">
+    <meta property="og:description" content="Research on biodiversity patterns, macroecology, functional traits and human impacts on vertebrates.">
+    <meta property="og:image" content="profile.JPG">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pierrolaloune.github.io">
+
+    <!-- Schema.org markup: PERSON (Massive SEO impact) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Pierre Bouchet",
+      "jobTitle": "PhD Student in Ecology & Biogeography",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "CRBE, Université Toulouse III - Paul Sabatier"
+      },
+      "url": "https://pierrolaloune.github.io",
+      "image": "profile.JPG",
+      "sameAs": [
+        "https://www.researchgate.net/profile/Pierre-Bouchet-2",
+        "https://www.linkedin.com/in/pierrebouchetprofile/",
+        "https://orcid.org/0009-0000-5907-9364",
+        "https://github.com/pierrolaloune"
+      ],
+      "description": "Research on biodiversity patterns, functional diversity, macroecology, conservation biology and human exploitation of vertebrates."
+    }
+    </script>
+
     <style>
         /* ---------- COLOR VARIABLES (DEFAULT: DARK THEME) ---------- */
         :root {
@@ -147,12 +184,6 @@
             background-position: center;
             filter: saturate(1.1);
             z-index: -1;
-        }
-
-        body.light-theme .hero::before {
-            background-image:
-                linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.35)),
-                url("hero-forest.jpg");
         }
 
         .hero-inner {
