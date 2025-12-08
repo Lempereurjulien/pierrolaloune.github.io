@@ -5,124 +5,137 @@
     <meta charset="UTF-8">
     <title>Pierre Bouchet - Academic Website</title>
     <style>
-        body { 
-            font-family: Arial, sans-serif; 
-            margin: 40px; 
-            background: #fafafa; 
-            color: #222; 
+        body {
+            font-family: Arial, sans-serif;
+            background: #fafafa;
+            color: #232;
+            margin: 0;
             line-height: 1.6;
         }
-        header { text-align: center; padding-bottom: 20px; }
-        img { 
-            max-width: 150px; 
-            border-radius: 50%; 
-            margin-bottom: 15px; 
-            border: 3px solid #ddd;
-        }
-        a { color: #0366d6; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        .section { margin: 40px 0; }
-        h2 { 
-            border-bottom: 1px solid #ccc; 
-            padding-bottom: 6px; 
-            margin-bottom: 12px; 
-        }
-        ul, ol { margin-left: 30px; }
-        /* Table of contents styles */
-        #toc {
+        .topbar {
             background: #fff;
             display: flex;
-            gap: 16px;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            padding: 14px 0 22px 0;
-            margin-bottom: 16px;
-            border-bottom: 1px solid #eee;
+            padding: 26px 36px 10px 36px;
+            box-shadow: 0px 2px 3px rgba(0,0,0,0.04);
             position: sticky;
             top: 0;
-            z-index: 10;
+            z-index: 20;
         }
-        #toc a {
-            font-weight: 500;
-            color: #0366d6;
-            padding: 6px 12px;
-            border-radius: 8px;
-            transition: background .2s;
+        .name {
+            font-size: 2.2em;
+            font-weight: bold;
+            color: #244e81;
         }
-        #toc a:hover {
-            background: #e3ecfa;
-            text-decoration: none;
-        }
-        /* Profile icons */
-        .profile-links {
+        .top-links {
             display: flex;
-            gap: 18px;
+            gap: 15px;
             align-items: center;
-            margin-top: 8px;
         }
-        .profile-link {
+        .top-link {
             display: inline-flex;
             align-items: center;
             gap: 5px;
-            font-size: 1.14em;
+            color: #232;
+            text-decoration: none;
+            background: #f5faff;
+            padding: 4px 11px;
+            border-radius: 9px;
+            font-size: 1.09em;
+            transition: background .16s;
         }
-        .profile-icon {
+        .top-link:hover {
+            background: #dbeffa;
+            color: #204e88;
+        }
+        .icon {
             width: 22px;
             height: 22px;
             vertical-align: middle;
         }
-        /* Smooth scroll */
-        html {
-            scroll-behavior: smooth;
+        /* TOC Navigation Bar */
+        #toc {
+            background: #f9fbff;
+            display: flex;
+            gap: 22px;
+            justify-content: center;
+            align-items: center;
+            padding: 13px 0 13px 0;
+            margin-bottom: 24px;
+            border-bottom: 1px solid #e3eaff;
+            position: sticky;
+            top: 72px;
+            z-index: 10;
+        }
+        #toc a {
+            font-weight: 500;
+            color: #2a65b9;
+            padding: 6px 12px;
+            border-radius: 8px;
+            transition: background .16s;
+            text-decoration: none;
+        }
+        #toc a:hover {
+            background: #e0eaff;
+            color: #294476;
+        }
+        .section {
+            margin: 44px auto;
+            max-width: 780px;
+            background: #fff;
+            padding: 28px 33px;
+            border-radius: 18px;
+            box-shadow: 0 3px 10px rgba(30,40,100,0.03);
+        }
+        h2 {
+            color: #2a65b9;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #c0d6fa;
+            padding-bottom: 8px;
+            font-size: 1.38em;
+            font-weight: 700;
+        }
+        ul, ol { margin-left: 28px;}
+        html { scroll-behavior: smooth;}
+        @media (max-width: 600px) {
+            .topbar, .section {padding-left: 10px; padding-right: 10px;}
+            .section {padding: 18px 8px;}
+            #toc {gap: 7px; font-size: 0.98em;}
         }
     </style>
 </head>
 
 <body>
-    <header>
-        <img src="profile.jpg" alt="Pierre Bouchet Photo">
-        <h1>Pierre Bouchet</h1>
-        <p>
-            PhD Student in Ecology<br>
-            <a href="https://crbe.cnrs.fr/" target="_blank">
-                Centre de Recherche sur la Biodiversité et l’Environnement (CRBE)
-            </a><br>
-            University of Toulouse
-        </p>
-    </header>
-
-    <!-- Interactive Table of Contents -->
-    <nav id="toc">
-        <a href="#profile">Profile & Socials</a>
-        <a href="#about">About</a>
-        <a href="#research">Research Interests</a>
-        <a href="#publications">Publications</a>
-        <a href="#teaching">Teaching</a>
-        <a href="#contact">Contact</a>
-    </nav>
-
-    <!-- PROFILE SECTION -->
-    <div class="section" id="profile">
-        <h2>Profile & Socials</h2>
-        <div class="profile-links">
-            <a class="profile-link" href="https://www.researchgate.net/profile/Pierre-Bouchet-2?ev=hdr_xprf" target="_blank" title="ResearchGate">
-                <img class="profile-icon" src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/researchgate.svg" alt="ResearchGate Icon">
-                ResearchGate
+    <!-- Top Bar -->
+    <div class="topbar">
+        <span class="name">Pierre Bouchet</span>
+        <div class="top-links">
+            <a class="top-link" href="https://www.researchgate.net/profile/Pierre-Bouchet-2?ev=hdr_xprf" target="_blank" title="ResearchGate">
+                <img class="icon" src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/researchgate.svg" alt="ResearchGate">
             </a>
-            <a class="profile-link" href="https://www.linkedin.com/in/pierrebouchetprofile/" target="_blank" title="LinkedIn">
-                <img class="profile-icon" src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/linkedin.svg" alt="LinkedIn Icon">
-                LinkedIn
+            <a class="top-link" href="https://www.linkedin.com/in/pierrebouchetprofile/" target="_blank" title="LinkedIn">
+                <img class="icon" src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/linkedin.svg" alt="LinkedIn">
             </a>
-            <a class="profile-link" href="https://orcid.org/0009-0000-5907-9364" target="_blank" title="ORCID">
-                <img class="profile-icon" src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/orcid.svg" alt="ORCID Icon">
-                ORCID
+            <a class="top-link" href="https://orcid.org/0009-0000-5907-9364" target="_blank" title="ORCID">
+                <img class="icon" src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/orcid.svg" alt="ORCID">
             </a>
         </div>
     </div>
 
-    <!-- ABOUT -->
+    <!-- Table of Contents Navigation -->
+    <nav id="toc">
+        <a href="#about">About</a>
+        <a href="#work">My Work</a>
+        <a href="#publications">Publications</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#talks">Talks & Posters</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- About Section -->
     <div class="section" id="about">
-        <h2>About Me</h2>
+        <h2>About</h2>
         <p>
             I am a PhD student and geographer specializing in community ecology and functional diversity. 
             My research focuses on how human activities reshape biodiversity patterns and the functional diversity of vertebrates at global and macroecological scales. 
@@ -133,26 +146,25 @@
             <a href="https://pintofscience.fr/" target="_blank">Pint of Science</a> 
             and 
             <a href="https://www.ebpt.fr/page/3177173-presentation" target="_blank">Les étoiles brillent pour tous</a>, 
-            contributing to the dissemination and accessibility of scientific knowledge.
-        </p>
-        <p>
-            Alongside my research, I teach undergraduate courses at the University of Toulouse, including Zoology, Aquatic Ecology, and Chemical Ecology.
+            contributing to the dissemination and accessibility of scientific knowledge. Alongside my research, I teach undergraduate courses at the University of Toulouse.
         </p>
     </div>
 
-    <!-- RESEARCH INTERESTS -->
-    <div class="section" id="research">
-        <h2>Research Interests</h2>
+    <!-- My Work Section -->
+    <div class="section" id="work">
+        <h2>My Work</h2>
+        <p>
+            My research integrates biogeography, trait-based ecology, and macroecology to better understand the impacts of anthropogenic pressures on biodiversity. I focus particularly on functional diversity—the range of biological traits present in an ecosystem—and how human activities reshape the ecological roles of vertebrates worldwide. My projects involve large-scale data analysis to assess extinction risks, conservation priorities, and the importance of morphologically unique species in maintaining ecological resilience.
+        </p>
         <ul>
-            <li>Functional ecology and functional diversity</li>
-            <li>Macroecology and biogeography</li>
-            <li>Conservation biology</li>
-            <li>Human impacts on biodiversity</li>
-            <li>Trait-based approaches</li>
+            <li>Trait-based approaches to study ecological communities</li>
+            <li>Analysis of biodiversity loss and functional erosion</li>
+            <li>Conservation strategies addressing global change</li>
+            <li>Teaching and outreach in scientific associations</li>
         </ul>
     </div>
 
-    <!-- PUBLICATIONS -->
+    <!-- Publications Section -->
     <div class="section" id="publications">
         <h2>Publications</h2>
         <p>
@@ -160,19 +172,31 @@
             <strong>Targeting morphologically unique fishes amplifies the risk of functional erosion</strong><br>
             Bouchet P., Brosse S., Toussaint A.
         </p>
+        <!-- Add more publications here as needed -->
     </div>
 
-    <!-- TEACHING -->
+    <!-- Teaching Section -->
     <div class="section" id="teaching">
         <h2>Teaching</h2>
         <ul>
-            <li>Zoology (Undergraduate level, University of Toulouse)</li>
+            <li>Zoology (Undergraduate, University of Toulouse)</li>
             <li>Aquatic Ecology</li>
             <li>Chemical Ecology</li>
         </ul>
     </div>
 
-    <!-- CONTACT -->
+    <!-- Talks and Posters Section -->
+    <div class="section" id="talks">
+        <h2>Talks & Posters</h2>
+        <ul>
+            <li><strong>2024, ESEB Congress:</strong> "Functional Diversity Trends in European Freshwater Fishes"</li>
+            <li><strong>2023, Pint of Science festival:</strong> "The Ripple Effect: Why Losing Fish Traits Matters"</li>
+            <li><strong>2022, CRBE Annual Meeting:</strong> Poster: "Mapping Extinction Risks in Aquatic Vertebrates"</li>
+            <!-- Add more entries here as needed -->
+        </ul>
+    </div>
+
+    <!-- Contact Section -->
     <div class="section" id="contact">
         <h2>Contact</h2>
         <p>Email: <a href="mailto:pierre.bouchet@utoulouse.fr">pierre.bouchet@utoulouse.fr</a></p>
