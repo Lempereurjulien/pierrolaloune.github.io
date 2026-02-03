@@ -356,6 +356,96 @@
             .field-img { max-width: 100%; }
             .topbar { padding: 14px 16px; }
         }
+
+        /* ---------- FIELDWORK CAROUSEL ---------- */
+            .carousel {
+              position: relative;
+              margin-top: 16px;
+              border-radius: 14px;
+              overflow: hidden;
+              border: 1px solid var(--border-soft);
+              background: var(--bg-elevated-soft);
+            }
+            
+            .carousel-viewport {
+              overflow: hidden;
+            }
+            
+            .carousel-track {
+              display: flex;
+              transition: transform 450ms ease;
+              will-change: transform;
+            }
+            
+            .carousel-slide {
+              flex: 0 0 100%;
+              width: 100%;
+              height: clamp(220px, 38vw, 420px);
+              object-fit: cover;
+              display: block;
+            }
+            
+            .carousel-btn {
+              position: absolute;
+              top: 50%;
+              transform: translateY(-50%);
+              border: 1px solid var(--border-soft);
+              background: rgba(15, 17, 22, 0.55);
+              color: #fff;
+              width: 44px;
+              height: 44px;
+              border-radius: 999px;
+              cursor: pointer;
+              z-index: 2;
+              display: grid;
+              place-items: center;
+              font-size: 28px;
+              line-height: 1;
+              transition: 0.2s;
+              backdrop-filter: blur(6px);
+            }
+            
+            body.light-theme .carousel-btn {
+              background: rgba(255, 255, 255, 0.7);
+              color: #171821;
+            }
+            
+            .carousel-btn:hover {
+              border-color: var(--accent);
+              box-shadow: 0 0 0 3px rgba(120, 178, 255, 0.15);
+            }
+            
+            .carousel-btn.prev { left: 12px; }
+            .carousel-btn.next { right: 12px; }
+            
+            .carousel-dots {
+              display: flex;
+              justify-content: center;
+              gap: 8px;
+              padding: 10px 0 0 0;
+              margin-top: 10px;
+            }
+            
+            .carousel-dot {
+              width: 9px;
+              height: 9px;
+              border-radius: 999px;
+              background: var(--border-soft);
+              border: 1px solid transparent;
+              cursor: pointer;
+              transition: 0.2s;
+            }
+            
+            .carousel-dot.active {
+              background: var(--accent);
+              box-shadow: 0 0 0 3px rgba(120, 178, 255, 0.15);
+            }
+            
+            /* Slightly larger buttons on small screens for thumbs */
+            @media (max-width: 780px) {
+              .carousel-btn { width: 48px; height: 48px; }
+            }
+
     </style>
 </head>
 
@@ -576,14 +666,30 @@
     </section>
 
     <!-- FIELDWORK -->
+  
     <section class="section" id="fieldwork" data-toc="Fieldwork">
-        <h2>Fieldwork</h2>
-        <p>Examples of tropical freshwater fieldwork environments and sampling contexts.</p>
-
-        <div class="fieldwork-images">
-            <img src="fieldwork1.JPG" class="field-img" alt="Fieldwork 1">
-            <img src="fieldwork2.JPG" class="field-img" alt="Fieldwork 2">
+      <h2>Fieldwork</h2>
+      <p>Examples of tropical freshwater fieldwork environments and sampling contexts.</p>
+    
+      <div class="carousel" id="fieldworkCarousel" aria-label="Fieldwork photo carousel">
+        <button class="carousel-btn prev" type="button" aria-label="Previous photo">‹</button>
+    
+        <div class="carousel-viewport">
+          <div class="carousel-track">
+            <img src="Fieldwork1.JPG" class="carousel-slide" alt="Fieldwork photo 1" loading="lazy">
+            <img src="Fieldwork2.JPG" class="carousel-slide" alt="Fieldwork photo 2" loading="lazy">
+            <img src="Fieldwork3.JPG" class="carousel-slide" alt="Fieldwork photo 3" loading="lazy">
+            <img src="Fieldwork4.JPG" class="carousel-slide" alt="Fieldwork photo 4" loading="lazy">
+            <img src="Fieldwork5.JPG" class="carousel-slide" alt="Fieldwork photo 5" loading="lazy">
+            <img src="Fieldwork6.JPG" class="carousel-slide" alt="Fieldwork photo 6" loading="lazy">
+            <img src="Fieldwork7.JPG" class="carousel-slide" alt="Fieldwork photo 7" loading="lazy">
+          </div>
         </div>
+    
+        <button class="carousel-btn next" type="button" aria-label="Next photo">›</button>
+      </div>
+    
+      <div class="carousel-dots" id="fieldworkDots" aria-label="Carousel navigation dots"></div>
     </section>
 
     <!-- CONTACT -->
@@ -593,59 +699,144 @@
         <p class="muted">Feel free to reach out for collaborations or research inquiries.</p>
     </section>
 
-    <!-- THEME TOGGLE SCRIPT + DYNAMIC TOC SCRIPT -->
-    <script>
-        // Theme toggle
-        const toggle = document.getElementById('themeToggle');
-        const body = document.body;
+    
+   <script>
+  // Theme toggle
+  const toggle = document.getElementById('themeToggle');
+  const body = document.body;
 
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'light') body.classList.add('light-theme');
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'light') body.classList.add('light-theme');
 
-        toggle.addEventListener('click', () => {
-            body.classList.toggle('light-theme');
-            localStorage.setItem('theme', body.classList.contains('light-theme') ? 'light' : 'dark');
-        });
+  toggle.addEventListener('click', () => {
+    body.classList.toggle('light-theme');
+    localStorage.setItem('theme', body.classList.contains('light-theme') ? 'light' : 'dark');
+  });
 
-        // -------- Dynamic Table of Contents --------
-        const toc = document.getElementById('toc');
-        const sections = Array.from(document.querySelectorAll('section.section[id]'));
+  // -------- Dynamic Table of Contents --------
+  const toc = document.getElementById('toc');
+  if (toc) {
+    const sections = Array.from(document.querySelectorAll('section.section[id]'));
 
-        // Build TOC links from section data-toc (fallback to h2 text)
-        const frag = document.createDocumentFragment();
-        sections.forEach(sec => {
-            const label = sec.getAttribute('data-toc') || (sec.querySelector('h2')?.textContent ?? sec.id);
-            const a = document.createElement('a');
-            a.href = `#${sec.id}`;
-            a.textContent = label;
-            a.dataset.target = sec.id;
-            frag.appendChild(a);
-        });
-        toc.appendChild(frag);
+    const frag = document.createDocumentFragment();
+    sections.forEach(sec => {
+      const label = sec.getAttribute('data-toc') || (sec.querySelector('h2')?.textContent ?? sec.id);
+      const a = document.createElement('a');
+      a.href = `#${sec.id}`;
+      a.textContent = label;
+      a.dataset.target = sec.id;
+      frag.appendChild(a);
+    });
+    toc.appendChild(frag);
 
-        // Highlight active section on scroll (IntersectionObserver)
-        const tocLinks = Array.from(toc.querySelectorAll('a[data-target]'));
-        const linkById = new Map(tocLinks.map(a => [a.dataset.target, a]));
+    const tocLinks = Array.from(toc.querySelectorAll('a[data-target]'));
+    const linkById = new Map(tocLinks.map(a => [a.dataset.target, a]));
 
-        const observer = new IntersectionObserver((entries) => {
-            // Get the entry closest to top that is intersecting
-            const visible = entries
-                .filter(e => e.isIntersecting)
-                .sort((a, b) => (a.boundingClientRect.top - b.boundingClientRect.top))[0];
+    const observer = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter(e => e.isIntersecting)
+        .sort((a, b) => (a.boundingClientRect.top - b.boundingClientRect.top))[0];
 
-            if (!visible) return;
+      if (!visible) return;
 
-            tocLinks.forEach(a => a.classList.remove('active'));
-            const active = linkById.get(visible.target.id);
-            if (active) active.classList.add('active');
-        }, {
-            root: null,
-            threshold: 0.25,
-            rootMargin: "-20% 0px -60% 0px"
-        });
+      tocLinks.forEach(a => a.classList.remove('active'));
+      const active = linkById.get(visible.target.id);
+      if (active) active.classList.add('active');
+    }, {
+      root: null,
+      threshold: 0.25,
+      rootMargin: "-20% 0px -60% 0px"
+    });
 
-        sections.forEach(sec => observer.observe(sec));
-    </script>
+    sections.forEach(sec => observer.observe(sec));
+  }
+
+  // -------- Fieldwork Carousel --------
+  (function () {
+    const root = document.getElementById('fieldworkCarousel');
+    if (!root) return;
+
+    const track = root.querySelector('.carousel-track');
+    const slides = Array.from(root.querySelectorAll('.carousel-slide'));
+    const btnPrev = root.querySelector('.carousel-btn.prev');
+    const btnNext = root.querySelector('.carousel-btn.next');
+    const dotsWrap = document.getElementById('fieldworkDots');
+
+    if (!track || slides.length === 0 || !btnPrev || !btnNext || !dotsWrap) return;
+
+    let index = 0;
+    let autoplayId = null;
+    const AUTOPLAY_MS = 4200;
+
+    const dots = slides.map((_, i) => {
+      const d = document.createElement('button');
+      d.type = 'button';
+      d.className = 'carousel-dot';
+      d.setAttribute('aria-label', `Go to photo ${i + 1}`);
+      d.addEventListener('click', () => goTo(i, true));
+      dotsWrap.appendChild(d);
+      return d;
+    });
+
+    function update() {
+      track.style.transform = `translateX(${-index * 100}%)`;
+      dots.forEach((d, i) => d.classList.toggle('active', i === index));
+    }
+
+    function goTo(i, userInitiated = false) {
+      index = (i + slides.length) % slides.length;
+      update();
+      if (userInitiated) restartAutoplay();
+    }
+
+    function next(user = false) { goTo(index + 1, user); }
+    function prev(user = false) { goTo(index - 1, user); }
+
+    btnNext.addEventListener('click', () => next(true));
+    btnPrev.addEventListener('click', () => prev(true));
+
+    root.tabIndex = 0;
+    root.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') next(true);
+      if (e.key === 'ArrowLeft') prev(true);
+    });
+
+    function startAutoplay() {
+      stopAutoplay();
+      autoplayId = window.setInterval(() => next(false), AUTOPLAY_MS);
+    }
+    function stopAutoplay() {
+      if (autoplayId) window.clearInterval(autoplayId);
+      autoplayId = null;
+    }
+    function restartAutoplay() { startAutoplay(); }
+
+    root.addEventListener('mouseenter', stopAutoplay);
+    root.addEventListener('mouseleave', startAutoplay);
+    root.addEventListener('focusin', stopAutoplay);
+    root.addEventListener('focusout', startAutoplay);
+
+    let startX = null;
+    root.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+    }, { passive: true });
+
+    root.addEventListener('touchend', (e) => {
+      if (startX === null) return;
+      const endX = e.changedTouches[0].clientX;
+      const dx = endX - startX;
+      startX = null;
+      if (Math.abs(dx) > 40) {
+        if (dx < 0) next(true);
+        else prev(true);
+      }
+    }, { passive: true });
+
+    update();
+    startAutoplay();
+  })();
+</script>
+
 
 </body>
 </html>
