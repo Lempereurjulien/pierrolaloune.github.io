@@ -68,7 +68,7 @@
       --radius-lg: 18px;
       --radius-md: 14px;
       --max: 1120px;
-      --pad: clamp(18px, 2.3vw, 30px);
+      --pad: clamp(24px, 2.3vw, 36px);
       --gap: clamp(14px, 2vw, 22px);
 
       --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
@@ -303,7 +303,7 @@
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
+      grid-template-columns: 0.95fr 1.05fr;
       gap: var(--gap);
       align-items: stretch;
     }
@@ -363,9 +363,9 @@
 
     h1 {
       margin: 0;
-      font-size: clamp(2.05rem, 4.2vw, 3.35rem);
+      font-size: clamp(1.65rem, 3.2vw, 2.65rem);
       letter-spacing: -0.035em;
-      line-height: 1.04;
+      line-height: 1.06;
     }
 
     .sub {
@@ -443,8 +443,8 @@
     }
 
     .pfp {
-      width: 96px;
-      height: 112px;
+      width: 118px;
+      height: 140px;
       border-radius: 18px;
       object-fit: cover;
       border: 1px solid rgba(255,255,255,0.22);
@@ -1041,27 +1041,26 @@
             <div class="hero-main">
               <div class="kicker">
                 <span class="dot" aria-hidden="true"></span>
-                <span>PhD student • CRBE, Université Toulouse III — Paul Sabatier</span>
+                <span>PhD student • CRBE, University of Toulouse</span>
                 <span style="opacity:.55">/</span>
-                <span>macroecology + functional diversity</span>
+                <span>macroecology + biodiversity + conservation</span>
               </div>
 
-              <h1>Human use filters biodiversity —
+              <h1>Geography and
                 <span
-                  style="background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent;">in
-                  trait space</span>.
+                  style="background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent;">Ecology</span>.
               </h1>
 
               <p class="sub">
                 I study how human activities reshape biodiversity patterns and functional diversity.
                 My work combines trait-based ecology, macroecology and conservation science to understand
-                which vertebrates are exploited, why, and what this implies for extinction risk and ecosystem functioning.
+                which vertebrates are exploited, why, and what this implies for extinction risk, invasivness and ecosystem functioning.
               </p>
 
               <div class="chiprow" aria-label="Key topics">
-                <span class="chip"><b>Focus</b> freshwater fishes</span>
-                <span class="chip"><b>Methods</b> traits • phylogeny • large-scale data</span>
-                <span class="chip"><b>Theme</b> functional erosion • anthropogenic filters</span>
+                <span class="chip"><b>Focus</b> human uses</span>
+                <span class="chip"><b>Methods</b> trait-based ecology • phylogeny • large database</span>
+                <span class="chip"><b>Theme</b> functional erosion • human impact • biodiversity crisis</span>
               </div>
 
               <div class="cta">
@@ -1077,7 +1076,7 @@
               <img src="profile.JPG" class="pfp" alt="Profile picture" />
               <div class="who">
                 <div class="title">Pierre Bouchet</div>
-                <div class="meta">PhD — ecology & biogeography<br />CRBE • Toulouse, France</div>
+                <div class="meta">PhD student<br />CRBE • Toulouse, France</div>
               </div>
             </div>
             <div class="mini">
@@ -1088,7 +1087,7 @@
                 </div>
                 <div class="stat">
                   <div class="k">core interest</div>
-                  <div class="v">Human selection on biodiversity</div>
+                  <div class="v">Ecosystem functionning • Biodiversity Conservation • Human impact • Biological invasions </div>
                 </div>
                 <div class="stat">
                   <div class="k">tools</div>
@@ -1096,7 +1095,7 @@
                 </div>
                 <div class="stat">
                   <div class="k">systems</div>
-                  <div class="v">Freshwater vertebrates</div>
+                  <div class="v">Vertebrates</div>
                 </div>
               </div>
               <div class="badge"><span class="pulse" aria-hidden="true"></span> open to collaborations</div>
@@ -1115,12 +1114,12 @@
             <span class="tag">profile</span>
           </div>
           <p>
-            I am a PhD student in ecology and biogeography at the <b>CRBE</b>, Université Toulouse III – Paul Sabatier,
+            I am a PhD student in macroecology and biogeography at the <b>CRBE</b>, University of Toulouse,
             supervised by <b>Sébastien Brosse</b> and <b>Aurèle Toussaint</b>.
           </p>
           <p>
-            I’m interested in how human uses of vertebrates (fisheries, trade, recreation, etc.) translate into
-            non-random patterns in functional trait space — and why that matters for conservation.
+            I’m interested in how human uses of vertebrates (fisheries, trade, recreation, hunt, etc.) translate into
+            non-random patterns in functional space, and why that matters for conservation.
           </p>
         </section>
 
@@ -1135,8 +1134,8 @@
           </p>
           <ul>
             <li>Functional traits influencing human use (fisheries, hunting, trade, recreation).</li>
-            <li>Links between exploitation, extinction risk, and invasion potential.</li>
-            <li>Regional variation driven by local pressures and availability.</li>
+            <li>Links between exploitation, extinction risk, and invasivness.</li>
+            <li>Non random pattern in functional trait-space.</li>
           </ul>
           <div class="media" style="margin-top:14px;">
             <img src="nuage-de-mots.png" alt="Research keyword wordcloud" loading="lazy" />
@@ -1150,13 +1149,13 @@
           </div>
           <div class="stack">
             <div class="row">
-              <div class="title">PhD — Functional diversity of vertebrates and human use</div>
+              <div class="title">PhD - Functional diversity of vertebrates and human use</div>
               <div class="meta">macroecology • trait-based ecology • conservation</div>
               <p class="desc">Links between functional traits, anthropogenic use, and the biodiversity crisis.</p>
             </div>
             <div class="row">
-              <div class="title">INTRAIT — Intra-specific trait variability in freshwater fish</div>
-              <div class="meta">ITV • functional ecology • tropical systems</div>
+              <div class="title">INTRAIT - Intra-specific trait variability in freshwater fish</div>
+              <div class="meta">ITV • functional ecology • freshwater fishes</div>
               <p class="desc">Consortium project on intraspecific trait variation (ITV) and its implications for functional ecology.</p>
             </div>
           </div>
@@ -1169,7 +1168,7 @@
           </div>
           <p>Selected publications will appear here soon.</p>
           <p style="font-family:var(--mono); color:var(--muted-2); margin-top:12px;">
-            Tip: once you have DOIs, we can auto-format to APA/Nature style with little badges (journal, year, topic).
+            <!--Tip: once you have DOIs, we can auto-format to APA/Nature style with little badges (journal, year, topic).-->
           </p>
         </section>
 
@@ -1183,26 +1182,26 @@
             <div class="t-progress" id="eduProgress" aria-hidden="true"></div>
 
             <div class="t-item">
-              <div class="t-title">BSc Biology — Ecology, Evolution, Systematics & Population Biology</div>
-              <div class="t-meta">2018 – 2020</div>
-              <p class="t-desc">Foundations in organismal biology, ecology, evolutionary processes, and quantitative approaches.</p>
+              <div class="t-title">BSc Biology - Ecology, Evolution, Systematics & Population Biology</div>
+              <div class="t-meta">2018 - 2020</div>
+              <p class="t-desc">Foundations in biology, ecology, evolutionary processes, and biostatistics</p>
             </div>
 
             <div class="t-item">
-              <div class="t-title">BSc Geography — Spatial Planning & Territorial Development</div>
-              <div class="t-meta">2020 – 2022</div>
+              <div class="t-title">BSc Geography - Spatial Planning & Territorial Development</div>
+              <div class="t-meta">2020 - 2022</div>
               <p class="t-desc">Spatial thinking, land-use dynamics, and socio-environmental systems at multiple scales.</p>
             </div>
 
             <div class="t-item">
               <div class="t-title">MSc (M1) Evolutionary & Functional Ecology</div>
-              <div class="t-meta">2022 – 2023</div>
+              <div class="t-meta">2022 - 2023</div>
               <p class="t-desc">Trait-based ecology, community dynamics, and eco-evolutionary theory with data-driven methods.</p>
             </div>
 
             <div class="t-item">
               <div class="t-title">MSc (M2) Biodiversity & Ecosystem Functioning (BIFE)</div>
-              <div class="t-meta">2023 – 2024</div>
+              <div class="t-meta">2023 - 2024</div>
               <p class="t-desc">Macroecology, conservation science, and ecosystem functioning; advanced analysis workflows in R.</p>
             </div>
           </div>
@@ -1216,23 +1215,23 @@
           <div class="stack">
             <div class="row">
               <div class="title">Zoology</div>
-              <div class="meta">32 h/year — Licence 1</div>
-              <p class="desc">Major animal lineages, comparative anatomy, organismal biology fundamentals.</p>
+              <div class="meta">32 h/year - Licence 1</div>
+              <p class="desc">Major animal lineages, comparative anatomy, biology fundamentals.</p>
             </div>
             <div class="row">
               <div class="title">Aquatic Ecology</div>
-              <div class="meta">15 h/year — Licence 3</div>
-              <p class="desc">Freshwater ecosystem functioning, community dynamics, environmental gradients and biodiversity.</p>
+              <div class="meta">15 h/year - Licence 3</div>
+              <p class="desc">Inventory of aquatic biodiversity, freshwater macroinvertebrates, electrofishing.</p>
             </div>
             <div class="row">
               <div class="title">Chemical Ecology</div>
-              <div class="meta">15 h/year — Licence 3</div>
-              <p class="desc">Chemical-mediated interactions (defense, communication, foraging) across trophic levels.</p>
+              <div class="meta">15 h/year - Licence 3</div>
+              <p class="desc">High-performance liquid chromatography, chemical signaling mechanism involving ecological interactions between prey and predator.</p>
             </div>
             <div class="row">
               <div class="title">General Ecology</div>
-              <div class="meta">9 h/year — Licence 2</div>
-              <p class="desc">Populations, communities, ecosystems, and drivers of biodiversity patterns.</p>
+              <div class="meta">9 h/year - Licence 2</div>
+              <p class="desc">Soil ecology, identification, and classification of soil fauna.</p>
             </div>
           </div>
         </section>
@@ -1245,7 +1244,7 @@
           <div class="stack">
             <div class="row">
               <div class="title">Pierre Bertrand</div>
-              <div class="meta">February 2026 – ongoing</div>
+              <div class="meta">February 2026 - ongoing</div>
               <p class="desc"><em>Intraspecific trait variation of freshwater fish from French Guiana</em> — co-supervision.</p>
             </div>
           </div>
@@ -1258,7 +1257,7 @@
           </div>
           <div class="stack">
             <div class="row">
-              <div class="title">2025 — Ecology & Behaviour</div>
+              <div class="title">2025 - Ecology & Behaviour</div>
               <div class="meta">Conference talk</div>
               <p class="desc">“Threatened freshwater fish used by humans support unique morphological traits.”</p>
             </div>
@@ -1274,8 +1273,8 @@
             <span class="tag">public</span>
           </div>
           <ul>
-            <li><b>Pint of Science</b> — scientific outreach events.</li>
-            <li><b>Les étoiles brillent pour tous</b> — science popularisation activities.</li>
+            <li><b>Pint of Science</b> - scientific outreach events.</li>
+            <li><b>Les étoiles brillent pour tous</b> - science popularisation activities.</li>
           </ul>
         </section>
 
@@ -1295,7 +1294,7 @@
             </div>
             <div class="row">
               <div class="title">Fieldwork</div>
-              <p class="desc">Tropical freshwater systems • vertebrate community sampling</p>
+              <p class="desc">Tropical freshwater systems • vertebrate community sampling • bird watching • plant identification • traits measurments </p>
             </div>
           </div>
         </section>
@@ -1341,7 +1340,7 @@
       </section>
 
       <footer>
-        © <span id="year"></span> Pierre Bouchet — built as a single HTML file (GitHub Pages-friendly)
+        © <span id="year"></span> Pierre Bouchet
       </footer>
     </main>
 
