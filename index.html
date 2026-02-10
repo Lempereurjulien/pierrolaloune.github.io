@@ -373,7 +373,32 @@
       letter-spacing: -0.035em;
       line-height: 1.04;
     }
-
+    .h1-base{ display:inline; }
+    
+    .h1-rotator{
+      display:inline-block;
+      position:relative;
+      padding-left: 0.25ch;
+      min-width: 9ch;            /* évite que le layout “saute” trop */
+    }
+    
+    .rotator-word{
+      display:inline-block;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    
+      opacity: 0;
+      transform: translateY(6px);
+      transition: 320ms ease;
+      will-change: transform, opacity;
+    }
+    
+    .rotator-word.is-visible{
+      opacity: 1;
+      transform: translateY(0);
+    }
     .sub {
       color: var(--muted);
       font-size: 1.05rem;
@@ -1052,10 +1077,13 @@
                 <span>macroecology + biodiversity + conservation</span>
               </div>
 
-              <h1>Geography and
-                <span
-                  style="background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent;">Ecology</span>.
+          <h1>
+                <span class="h1-base">Ecology and</span>
+                <span class="h1-rotator" id="heroRotator" aria-label="Rotating research topics">
+                  <span class="rotator-word is-visible">Geography</span>
+                </span>.
               </h1>
+
 
               <p class="sub">
                 I study how human activities reshape biodiversity patterns and functional diversity.
@@ -1737,6 +1765,42 @@
 
     // Year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    (function () {
+  const el = document.getElementById('heroRotator');
+  if (!el) return;
+
+  const words = [
+    'Ecology',
+    'Macroecology',
+    'Biogeography',
+    'Conservation',
+    'Functional diversity',
+    'Trait-based ecology',
+    'Freshwater fish'
+  ];
+
+  let i = 0;
+
+  function setWord(next) {
+    // fade out
+    const current = el.querySelector('.rotator-word');
+    if (current) current.classList.remove('is-visible');
+
+    window.setTimeout(() => {
+      el.innerHTML = `<span class="rotator-word is-visible">${next}</span>`;
+    }, 180);
+  }
+
+  // init with first word
+  el.innerHTML = `<span class="rotator-word is-visible">${words[0]}</span>`;
+
+  window.setInterval(() => {
+    i = (i + 1) % words.length;
+    setWord(words[i]);
+  }, 1000);
+})();
+    
   </script>
 </body>
 
