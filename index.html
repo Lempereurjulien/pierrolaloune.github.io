@@ -2,25 +2,28 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Pierre Bouchet - Academic Website</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pierre Bouchet - Academic Website</title>
 
-    <!-- ===========================
-         SEO META TAGS (CRUCIAL)
-    ============================ -->
-    <meta name="description" content="Pierre Bouchet — PhD student in ecology and biogeography at CRBE, Université Toulouse III. Research on biodiversity, functional ecology, macroecology, and human impacts on vertebrates.">
-    <meta name="keywords" content="Pierre Bouchet, ecology, PhD, research, biodiversity, macroecology, functional ecology, CRBE, Université Toulouse III, conservation biology, freshwater fish">
-    <meta name="author" content="Pierre Bouchet">
+  <!-- ===========================
+       SEO META TAGS (CRUCIAL)
+  ============================ -->
+  <meta name="description"
+    content="Pierre Bouchet — PhD student in ecology and biogeography at CRBE, Université Toulouse III. Research on biodiversity, functional ecology, macroecology, and human impacts on vertebrates.">
+  <meta name="keywords"
+    content="Pierre Bouchet, ecology, PhD, research, biodiversity, macroecology, functional ecology, CRBE, Université Toulouse III, conservation biology, freshwater fish">
+  <meta name="author" content="Pierre Bouchet">
 
-    <!-- Social and Google previews -->
-    <meta property="og:title" content="Pierre Bouchet — PhD student in Ecology & Biogeography">
-    <meta property="og:description" content="Research on biodiversity patterns, macroecology, functional traits and human impacts on vertebrates.">
-    <meta property="og:image" content="profile.JPG">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://pierrolaloune.github.io">
+  <!-- Social and Google previews -->
+  <meta property="og:title" content="Pierre Bouchet — PhD student in Ecology & Biogeography">
+  <meta property="og:description" content="Research on biodiversity patterns, macroecology, functional traits and human impacts on vertebrates.">
+  <meta property="og:image" content="profile.JPG">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pierrolaloune.github.io">
 
-    <!-- Schema.org markup: PERSON (Massive SEO impact) -->
-    <script type="application/ld+json">
+  <!-- Schema.org markup: PERSON -->
+  <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Person",
@@ -40,803 +43,1107 @@
       ],
       "description": "Research on biodiversity patterns, functional diversity, macroecology, conservation biology and human exploitation of vertebrates."
     }
-    </script>
+  </script>
 
-    <style>
-        /* ---------- COLOR VARIABLES (DEFAULT: DARK THEME) ---------- */
-        :root {
-            --bg-color: #0f1116;
-            --bg-elevated: #161a22;
-            --bg-elevated-soft: #14171f;
-            --text-color: #e6e6e6;
-            --muted-text: #a4a8b5;
-            --accent: #78b2ff;
-            --accent-strong: #6ab8ff;
-            --accent-soft: #1d2330;
-            --border-soft: #1f2430;
-            --chip-bg: #1b1f29;
-            --link-color: #6ab8ff;
-            --link-hover: #9cd3ff;
-        }
+  <style>
+    /* ---------- COLOR VARIABLES (DEFAULT: DARK THEME) ---------- */
+    :root {
+      --bg-color: #0f1116;
+      --bg-elevated: #161a22;
+      --bg-elevated-soft: #14171f;
+      --text-color: #e6e6e6;
+      --muted-text: #a4a8b5;
+      --accent: #78b2ff;
+      --accent-strong: #6ab8ff;
+      --accent-soft: #1d2330;
+      --border-soft: #1f2430;
+      --chip-bg: #1b1f29;
+      --link-color: #6ab8ff;
+      --link-hover: #9cd3ff;
+    }
 
-        body.light-theme {
-            --bg-color: #f5f6fa;
-            --bg-elevated: #ffffff;
-            --bg-elevated-soft: #ffffff;
-            --text-color: #171821;
-            --muted-text: #4b4f5c;
-            --accent: #245ca8;
-            --accent-strong: #1e4f90;
-            --accent-soft: #e3ecff;
-            --border-soft: #d2d8e5;
-            --chip-bg: #eef2fb;
-            --link-color: #245ca8;
-            --link-hover: #163a71;
-        }
+    body.light-theme {
+      --bg-color: #f5f6fa;
+      --bg-elevated: #ffffff;
+      --bg-elevated-soft: #ffffff;
+      --text-color: #171821;
+      --muted-text: #4b4f5c;
+      --accent: #245ca8;
+      --accent-strong: #1e4f90;
+      --accent-soft: #e3ecff;
+      --border-soft: #d2d8e5;
+      --chip-bg: #eef2fb;
+      --link-color: #245ca8;
+      --link-hover: #163a71;
+    }
 
-        html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        body {
-            margin: 0;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-            background: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.65;
-        }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.65;
+    }
 
-        a { color: var(--link-color); text-decoration: none; }
-        a:hover { color: var(--link-hover); }
+    a {
+      color: var(--link-color);
+      text-decoration: none;
+    }
 
-        /* ---------- TOP BAR ---------- */
-        .topbar {
-            background: var(--bg-elevated-soft);
-            border-bottom: 1px solid var(--border-soft);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 16px 34px;
-            position: sticky;
-            top: 0;
-            z-index: 50;
-        }
+    a:hover {
+      color: var(--link-hover);
+    }
 
-        .name {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--accent);
-        }
+    /* ---------- TOP BAR ---------- */
+    .topbar {
+      background: var(--bg-elevated-soft);
+      border-bottom: 1px solid var(--border-soft);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 34px;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
 
-        .top-right {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
+    .name {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
 
-        .top-links {
-            display: flex;
-            gap: 10px;
-        }
+    .top-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
 
-        .top-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--chip-bg);
-            padding: 6px 10px;
-            border-radius: 10px;
-            border: 1px solid transparent;
-            transition: 0.2s;
-        }
+    .top-links {
+      display: flex;
+      gap: 10px;
+    }
 
-        .top-link:hover {
-            background: var(--accent-soft);
-            border-color: var(--accent);
-        }
+    .top-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--chip-bg);
+      padding: 6px 10px;
+      border-radius: 10px;
+      border: 1px solid transparent;
+      transition: 0.2s;
+    }
 
-        .icon {
-            width: 20px;
-            height: 20px;
-            filter: invert(80%);
-        }
+    .top-link:hover {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+    }
 
-        body.light-theme .icon { filter: none; }
+    .icon {
+      width: 20px;
+      height: 20px;
+      filter: invert(80%);
+    }
 
-        .theme-toggle {
-            border-radius: 999px;
-            border: 1px solid var(--border-soft);
-            background: var(--chip-bg);
-            color: var(--text-color);
-            padding: 5px 10px;
-            font-size: 0.85rem;
-            cursor: pointer;
-        }
+    body.light-theme .icon {
+      filter: none;
+    }
 
-        /* ---------- HERO SECTION ---------- */
-        .hero {
-            position: relative;
-            min-height: 58vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: #ffffff;
-            overflow: hidden;
-        }
+    .theme-toggle {
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      background: var(--chip-bg);
+      color: var(--text-color);
+      padding: 5px 10px;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
 
-        .hero::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background-image:
-                linear-gradient(to bottom, rgba(4, 8, 20, 0.8), rgba(4, 8, 20, 0.95)),
-                url("hero-forest.jpg");
-            background-size: cover;
-            background-position: center;
-            filter: saturate(1.1);
-            z-index: -1;
-        }
+    /* ---------- HERO SECTION ---------- */
+    .hero {
+      position: relative;
+      min-height: 58vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #ffffff;
+      overflow: hidden;
+    }
 
-        .hero-inner {
-            max-width: 900px;
-            padding: 40px 16px 48px 16px;
-        }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(to bottom, rgba(4, 8, 20, 0.8), rgba(4, 8, 20, 0.95)),
+        url("hero-forest.jpg");
+      background-size: cover;
+      background-position: center;
+      filter: saturate(1.1);
+      z-index: -1;
+    }
 
-        /* --- Bigger profile photo (responsive) --- */
-        .profile-pic {
-            width: clamp(190px, 18vw, 270px);
-            height: clamp(190px, 18vw, 270px);
-            object-fit: cover;
-            border-radius: 14px;
-            border: 2px solid rgba(180, 210, 255, 0.9);
-            box-shadow: 0 0 26px rgba(120, 178, 255, 0.55);
-            margin-bottom: 10px;
-        }
+    .hero-inner {
+      max-width: 900px;
+      padding: 40px 16px 48px 16px;
+    }
 
-        .hero-title {
-            font-size: 2.1rem;
-            font-weight: 700;
-            margin-bottom: 6px;
-        }
+    .profile-pic {
+      width: clamp(190px, 18vw, 270px);
+      height: clamp(190px, 18vw, 270px);
+      object-fit: cover;
+      border-radius: 14px;
+      border: 2px solid rgba(180, 210, 255, 0.9);
+      box-shadow: 0 0 26px rgba(120, 178, 255, 0.55);
+      margin-bottom: 10px;
+    }
 
-        .hero-subtitle {
-            font-size: 1.1rem;
-            color: #d6deff;
-            margin-bottom: 18px;
-        }
+    .hero-title {
+      font-size: 2.1rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
 
-        .hero-text {
-            font-size: 0.98rem;
-            color: #d0d5eb;
-            max-width: 720px;
-            margin: 0 auto 22px auto;
-        }
+    .hero-subtitle {
+      font-size: 1.1rem;
+      color: #d6deff;
+      margin-bottom: 18px;
+    }
 
-        /* ---------- NAVIGATION (Dynamic TOC container) ---------- */
-        .nav-sections {
-            background: var(--bg-elevated-soft);
-            border-bottom: 1px solid var(--border-soft);
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            padding: 10px 8px;
-            position: sticky;
-            top: 64px;
-            z-index: 40;
-            flex-wrap: wrap;
-        }
+    .hero-text {
+      font-size: 0.98rem;
+      color: #d0d5eb;
+      max-width: 720px;
+      margin: 0 auto 22px auto;
+    }
 
-        .nav-sections a {
-            padding: 6px 10px;
-            border-radius: 999px;
-            font-size: 0.9rem;
-            color: var(--muted-text);
-            border: 1px solid transparent;
-            transition: 0.2s;
-        }
+    /* ---------- NAVIGATION (Dynamic TOC container) ---------- */
+    .nav-sections {
+      background: var(--bg-elevated-soft);
+      border-bottom: 1px solid var(--border-soft);
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px 8px;
+      position: sticky;
+      top: 64px;
+      z-index: 40;
+      flex-wrap: wrap;
+    }
 
-        .nav-sections a:hover {
-            color: var(--accent);
-            background: var(--accent-soft);
-            border-color: var(--accent);
-        }
+    .nav-sections a {
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      color: var(--muted-text);
+      border: 1px solid transparent;
+      transition: 0.2s;
+    }
 
-        .nav-sections a.active {
-            color: var(--accent);
-            background: var(--accent-soft);
-            border-color: var(--accent);
-        }
+    .nav-sections a:hover {
+      color: var(--accent);
+      background: var(--accent-soft);
+      border-color: var(--accent);
+    }
 
-        /* Small helper for optional mobile menu button (kept minimal) */
-        .toc-label {
-            color: var(--muted-text);
-            font-size: 0.85rem;
-            margin-right: 6px;
-            align-self: center;
-        }
+    .nav-sections a.active {
+      color: var(--accent);
+      background: var(--accent-soft);
+      border-color: var(--accent);
+    }
 
-        /* ---------- SECTIONS ---------- */
-        .section {
-            margin: 42px auto;
-            max-width: 880px;
-            background: var(--bg-elevated);
-            padding: 30px 32px;
-            border-radius: 16px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.32);
-        }
+    .toc-label {
+      color: var(--muted-text);
+      font-size: 0.85rem;
+      margin-right: 6px;
+      align-self: center;
+    }
 
-        h2 {
-            color: var(--accent);
-            margin-bottom: 14px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid var(--border-soft);
-            font-size: 1.45rem;
-            font-weight: 700;
-        }
+    /* ---------- SECTIONS ---------- */
+    .section {
+      margin: 42px auto;
+      max-width: 880px;
+      background: var(--bg-elevated);
+      padding: 30px 32px;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.32);
+    }
 
-        /* ---------- IMAGES ---------- */
-        .wordcloud-container,
-        .talks-image { margin-top: 22px; text-align: center; }
+    h2 {
+      color: var(--accent);
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-soft);
+      font-size: 1.45rem;
+      font-weight: 700;
+    }
 
-        .wordcloud-img,
-        .talk-img {
-            max-width: 100%;
-            border-radius: 12px;
-            border: 1px solid var(--border-soft);
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
-        }
+    /* ---------- IMAGES ---------- */
+    .wordcloud-container,
+    .talks-image {
+      margin-top: 22px;
+      text-align: center;
+    }
 
-        .wordcloud-img { width: 700px; }
-        .talk-img { width: 620px; }
+    .wordcloud-img,
+    .talk-img {
+      max-width: 100%;
+      border-radius: 12px;
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+    }
 
-        /* ---------- FIELDWORK ---------- */
-        .fieldwork-images {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 16px;
-        }
+    .wordcloud-img {
+      width: 700px;
+    }
 
-        .field-img {
-            flex: 1 1 220px;
-            max-width: 48%;
-            height: 190px;
-            object-fit: cover;
-            border-radius: 10px;
-            border: 1px solid var(--border-soft);
-        }
+    .talk-img {
+      width: 620px;
+    }
 
-        /* ---------- Teaching: nicer course blocks ---------- */
-        .course-list { list-style: none; padding-left: 0; margin: 0; }
-        .course-item {
-            background: var(--bg-elevated-soft);
-            border: 1px solid var(--border-soft);
-            border-radius: 14px;
-            padding: 14px 16px;
-            margin: 10px 0;
-        }
-        .course-title {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            align-items: baseline;
-            font-weight: 700;
-            color: var(--text-color);
-            margin-bottom: 6px;
-        }
-        .course-meta {
-            font-weight: 600;
-            color: var(--muted-text);
-            font-size: 0.92rem;
-        }
-        .course-desc {
-            color: var(--muted-text);
-            margin: 0;
-            font-size: 0.95rem;
-        }
+    /* ---------- Teaching: nicer course blocks ---------- */
+    .course-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
 
-        /* ---------- Projects / Supervision blocks ---------- */
-        .item-block {
-            background: var(--bg-elevated-soft);
-            border: 1px solid var(--border-soft);
-            border-radius: 14px;
-            padding: 14px 16px;
-            margin: 10px 0;
-        }
-        .item-block .item-title {
-            font-weight: 800;
-            margin-bottom: 6px;
-        }
-        .item-block .item-sub {
-            color: var(--muted-text);
-            margin: 0;
-        }
+    .course-item {
+      background: var(--bg-elevated-soft);
+      border: 1px solid var(--border-soft);
+      border-radius: 14px;
+      padding: 14px 16px;
+      margin: 10px 0;
+    }
 
-        @media (max-width: 780px) {
-            .section { margin: 30px 10px; padding: 24px 18px; }
-            .field-img { max-width: 100%; }
-            .topbar { padding: 14px 16px; }
-        }
+    .course-title {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: baseline;
+      font-weight: 700;
+      color: var(--text-color);
+      margin-bottom: 6px;
+    }
 
-        /* ---------- FIELDWORK CAROUSEL ---------- */
-            .carousel {
-              position: relative;
-              margin-top: 16px;
-              border-radius: 14px;
-              overflow: hidden;
-              border: 1px solid var(--border-soft);
-              background: var(--bg-elevated-soft);
-            }
-            
-            .carousel-viewport {
-              overflow: hidden;
-            }
-            
-            .carousel-track {
-              display: flex;
-              transition: transform 450ms ease;
-              will-change: transform;
-            }
-            
-            .carousel-slide {
-              flex: 0 0 100%;
-              width: 100%;
-              height: clamp(220px, 38vw, 420px);
-              object-fit: cover;
-              display: block;
-            }
-            
-            .carousel-btn {
-              position: absolute;
-              top: 50%;
-              transform: translateY(-50%);
-              border: 1px solid var(--border-soft);
-              background: rgba(15, 17, 22, 0.55);
-              color: #fff;
-              width: 44px;
-              height: 44px;
-              border-radius: 999px;
-              cursor: pointer;
-              z-index: 2;
-              display: grid;
-              place-items: center;
-              font-size: 28px;
-              line-height: 1;
-              transition: 0.2s;
-              backdrop-filter: blur(6px);
-            }
-            
-            body.light-theme .carousel-btn {
-              background: rgba(255, 255, 255, 0.7);
-              color: #171821;
-            }
-            
-            .carousel-btn:hover {
-              border-color: var(--accent);
-              box-shadow: 0 0 0 3px rgba(120, 178, 255, 0.15);
-            }
-            
-            .carousel-btn.prev { left: 12px; }
-            .carousel-btn.next { right: 12px; }
-            
-            .carousel-dots {
-              display: flex;
-              justify-content: center;
-              gap: 8px;
-              padding: 10px 0 0 0;
-              margin-top: 10px;
-            }
-            
-            .carousel-dot {
-              width: 9px;
-              height: 9px;
-              border-radius: 999px;
-              background: var(--border-soft);
-              border: 1px solid transparent;
-              cursor: pointer;
-              transition: 0.2s;
-            }
-            
-            .carousel-dot.active {
-              background: var(--accent);
-              box-shadow: 0 0 0 3px rgba(120, 178, 255, 0.15);
-            }
-            
-            /* Slightly larger buttons on small screens for thumbs */
-            @media (max-width: 780px) {
-              .carousel-btn { width: 48px; height: 48px; }
-            }
+    .course-meta {
+      font-weight: 600;
+      color: var(--muted-text);
+      font-size: 0.92rem;
+    }
 
-    </style>
+    .course-desc {
+      color: var(--muted-text);
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    /* ---------- Projects / Supervision blocks ---------- */
+    .item-block {
+      background: var(--bg-elevated-soft);
+      border: 1px solid var(--border-soft);
+      border-radius: 14px;
+      padding: 14px 16px;
+      margin: 10px 0;
+    }
+
+    .item-block .item-title {
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .item-block .item-sub {
+      color: var(--muted-text);
+      margin: 0;
+    }
+
+    @media (max-width: 780px) {
+      .section {
+        margin: 30px 10px;
+        padding: 24px 18px;
+      }
+
+      .topbar {
+        padding: 14px 16px;
+      }
+    }
+
+    /* ---------- FIELDWORK CAROUSEL ---------- */
+    .carousel {
+      position: relative;
+      margin-top: 16px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--border-soft);
+      background: var(--bg-elevated-soft);
+    }
+
+    .carousel-viewport {
+      overflow: hidden;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 450ms ease;
+      will-change: transform;
+    }
+
+    .carousel-slide {
+      flex: 0 0 100%;
+      width: 100%;
+      height: clamp(220px, 38vw, 420px);
+      object-fit: cover;
+      display: block;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      border: 1px solid var(--border-soft);
+      background: rgba(15, 17, 22, 0.55);
+      color: #fff;
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      cursor: pointer;
+      z-index: 2;
+      display: grid;
+      place-items: center;
+      font-size: 28px;
+      line-height: 1;
+      transition: 0.2s;
+      backdrop-filter: blur(6px);
+    }
+
+    body.light-theme .carousel-btn {
+      background: rgba(255, 255, 255, 0.7);
+      color: #171821;
+    }
+
+    .carousel-btn:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(120, 178, 255, 0.15);
+    }
+
+    .carousel-btn.prev {
+      left: 12px;
+    }
+
+    .carousel-btn.next {
+      right: 12px;
+    }
+
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 0 0 0;
+      margin-top: 10px;
+    }
+
+    .carousel-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: var(--border-soft);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .carousel-dot.active {
+      background: var(--accent);
+      box-shadow: 0 0 0 3px rgba(120, 178, 255, 0.15);
+    }
+
+    @media (max-width: 780px) {
+      .carousel-btn {
+        width: 48px;
+        height: 48px;
+      }
+    }
+
+    /* ---------- EDUCATION TIMELINE ---------- */
+    .timeline {
+      position: relative;
+      margin-top: 18px;
+      padding-left: 34px;
+    }
+
+    .timeline-line {
+      position: absolute;
+      left: 12px;
+      top: 6px;
+      bottom: 6px;
+      width: 2px;
+      background: var(--border-soft);
+      border-radius: 2px;
+    }
+
+    .timeline-progress {
+      position: absolute;
+      left: 12px;
+      top: 6px;
+      width: 2px;
+      height: 0px;
+      background: var(--accent);
+      border-radius: 2px;
+      box-shadow: 0 0 18px rgba(120, 178, 255, 0.25);
+    }
+
+    .timeline-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      padding: 16px 14px;
+      margin: 10px 0;
+      border-radius: 14px;
+      border: 1px solid var(--border-soft);
+      background: var(--bg-elevated-soft);
+      transform: translateY(6px);
+      opacity: 0.85;
+      transition: 260ms ease;
+    }
+
+    .timeline-item.is-active {
+      border-color: rgba(120, 178, 255, 0.35);
+      box-shadow: 0 0 0 3px rgba(120, 178, 255, 0.10);
+      transform: translateY(0px);
+      opacity: 1;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: 12px;
+      top: 22px;
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      transform: translateX(-50%);
+      background: var(--chip-bg);
+      border: 2px solid var(--border-soft);
+      transition: 260ms ease;
+    }
+
+    .timeline-item.is-active .timeline-dot {
+      background: var(--accent);
+      border-color: rgba(120, 178, 255, 0.7);
+      box-shadow: 0 0 18px rgba(120, 178, 255, 0.35);
+    }
+
+    .timeline-content {
+      padding-left: 6px;
+    }
+
+    .timeline-title {
+      font-weight: 800;
+      margin-bottom: 2px;
+    }
+
+    .timeline-meta {
+      font-weight: 650;
+      font-size: 0.92rem;
+      color: var(--muted-text);
+      margin-bottom: 6px;
+    }
+
+    .timeline-desc {
+      margin: 0;
+      color: var(--muted-text);
+      font-size: 0.95rem;
+    }
+
+    /* ---------- SECTION REVEAL ---------- */
+    .section.reveal {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: 420ms ease;
+    }
+
+    .section.reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ---------- BACK TO TOP ---------- */
+    .back-to-top {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 80;
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      background: var(--chip-bg);
+      color: var(--text-color);
+      padding: 10px 12px;
+      cursor: pointer;
+      display: none;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+      transition: 0.2s;
+    }
+
+    .back-to-top:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(120, 178, 255, 0.12), 0 10px 24px rgba(0, 0, 0, 0.35);
+    }
+
+    .back-to-top.show {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+  </style>
 </head>
 
 <body>
 
-    <!-- TOP BAR -->
-    <header class="topbar">
-        <div class="name">Pierre Bouchet</div>
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <div class="name">Pierre Bouchet</div>
 
-        <div class="top-right">
-            <div class="top-links">
-                <a class="top-link" href="https://www.researchgate.net/profile/Pierre-Bouchet-2?ev=hdr_xprf" target="_blank">
-                    <img class="icon" alt="ResearchGate" src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/researchgate.svg">
-                </a>
-                <a class="top-link" href="https://www.linkedin.com/in/pierrebouchetprofile/" target="_blank">
-                    <img class="icon" alt="LinkedIn" src="linkedin.svg">
-                </a>
-                <a class="top-link" href="https://orcid.org/0009-0000-5907-9364" target="_blank">
-                    <img class="icon" alt="ORCID" src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/orcid.svg">
-                </a>
-                <a class="top-link" href="https://github.com/pierrolaloune" target="_blank">
-                    <img class="icon" alt="GitHub" src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/github.svg">
-                </a>
-            </div>
-
-            <button class="theme-toggle" id="themeToggle">🌙 / ☀</button>
-        </div>
-    </header>
-
-    <!-- HERO -->
-    <section class="hero">
-        <div class="hero-inner">
-            <img src="profile.JPG" class="profile-pic" alt="Profile picture">
-
-            <div class="hero-title">Pierre Bouchet</div>
-            <div class="hero-subtitle">PhD student in ecology & biogeography — CRBE, Université Toulouse III</div>
-
-            <p class="hero-text">
-                I study how human activities reshape biodiversity patterns and functional diversity. My research integrates
-                trait-based ecology, macroecology and conservation biology to understand why certain vertebrates are more
-                exploited than others, and how this affects extinction risk and ecosystem functioning.
-            </p>
-        </div>
-    </section>
-
-    <!-- DYNAMIC TABLE OF CONTENTS (auto-filled by JS) -->
-    <nav class="nav-sections" id="toc">
-        <span class="toc-label">Sections:</span>
-        <!-- Links injected here -->
-    </nav>
-
-    <!-- ABOUT -->
-    <section class="section" id="about" data-toc="About">
-        <h2>About</h2>
-        <p>
-            I am a PhD student in ecology and biogeography at the <strong>CRBE</strong>, Université Toulouse III – Paul Sabatier,
-            supervised by <strong>Sébastien Brosse</strong> and <strong>Aurèle Toussaint</strong>.
-        </p>
-        <p>
-            My research focuses on understanding how human uses of vertebrates (fisheries, hunting, trade, recreation)
-            influence biodiversity patterns and functional diversity at global scales.
-        </p>
-    </section>
-
-    <!-- RESEARCH -->
-    <section class="section" id="research" data-toc="Research">
-        <h2>Research</h2>
-        <p>
-            My thesis examines how humans selectively exploit vertebrate species and how this selection translates into
-            non-random patterns in functional trait space. I investigate:
-        </p>
-
-        <ul>
-            <li>Functional traits influencing human use (fisheries, hunting, trade, recreation).</li>
-            <li>Links between human exploitation, extinction risk, and invasion potential.</li>
-            <li>Regional variations in functional trait patterns based on local human pressures.</li>
-        </ul>
-
-        <p>
-            The work adopts a <strong>macroecological, cross-taxon</strong> perspective, relying on large trait datasets,
-            global distribution information, and conservation assessments.
-        </p>
-
-        <div class="wordcloud-container">
-            <img src="nuage-de-mots.png" alt="Research keyword wordcloud" class="wordcloud-img">
-        </div>
-    </section>
-
-    <!-- PROJECTS (NEW) -->
-    <section class="section" id="projects" data-toc="Projects">
-        <h2>Projects</h2>
-
-        <div class="item-block">
-            <div class="item-title">PhD — Functional diversity of vertebrates and human use</div>
-            <p class="item-sub">
-                Links between functional traits, anthropogenic use, and the biodiversity crisis.
-            </p>
-        </div>
-
-        <div class="item-block">
-            <div class="item-title">INTRAIT — Intra-specific trait variability in freshwater fish</div>
-            <p class="item-sub">
-                Consortium project on intraspecific trait variation (ITV) and its implications for functional ecology.
-            </p>
-        </div>
-    </section>
-
-    <!-- PUBLICATIONS -->
-    <section class="section" id="publications" data-toc="Publications">
-        <h2>Publications</h2>
-        <p class="course-desc">Selected publications will appear here soon.</p>
-    </section>
-
-    <!-- TEACHING (with descriptions) -->
-    <section class="section" id="teaching" data-toc="Teaching">
-        <h2>Teaching</h2>
-
-        <ul class="course-list">
-            <li class="course-item">
-                <div class="course-title">
-                    <span>Zoology</span>
-                    <span class="course-meta">— 32 h/year (Licence 1)</span>
-                </div>
-                <p class="course-desc">
-                    Introductory zoology covering major animal lineages, comparative anatomy, and core concepts in organismal biology.
-                </p>
-            </li>
-
-            <li class="course-item">
-                <div class="course-title">
-                    <span>Aquatic Ecology</span>
-                    <span class="course-meta">— 15 h/year (Licence 3)</span>
-                </div>
-                <p class="course-desc">
-                    Ecological functioning of freshwater systems, community dynamics, and links between environmental gradients and biodiversity.
-                </p>
-            </li>
-
-            <li class="course-item">
-                <div class="course-title">
-                    <span>Chemical Ecology</span>
-                    <span class="course-meta">— 15 h/year (Licence 3)</span>
-                </div>
-                <p class="course-desc">
-                    Chemical-mediated interactions (defense, communication, foraging) across trophic levels, with ecological and evolutionary perspectives.
-                </p>
-            </li>
-
-            <li class="course-item">
-                <div class="course-title">
-                    <span>General Ecology</span>
-                    <span class="course-meta">— 9 h/year (Licence 2)</span>
-                </div>
-                <p class="course-desc">
-                    Foundations of ecology: populations, communities, ecosystems, and key drivers of biodiversity patterns.
-                </p>
-            </li>
-        </ul>
-    </section>
-
-    <!-- SUPERVISION (NEW, all in English) -->
-    <section class="section" id="supervision" data-toc="Supervision">
-        <h2>Supervision</h2>
-
-        <div class="item-block">
-            <div class="item-title">Pierre Bertrand — February 2026 – ongoing</div>
-            <p class="item-sub">
-                <em>Intraspecific trait variation of freshwater fish from French Guiana</em> — co-supervision.
-            </p>
-        </div>
-    </section>
-
-    <!-- TALKS -->
-    <section class="section" id="talks" data-toc="Talks">
-        <h2>Talks</h2>
-        <ul>
-            <li><strong>2025 – Ecology & Behaviour</strong><br>
-                “Threatened freshwater fish used by humans support unique morphological traits.”</li>
-        </ul>
-
-        <div class="talks-image">
-            <img src="conference.jpg" alt="Conference presentation" class="talk-img">
-        </div>
-    </section>
-
-    <!-- OUTREACH -->
-    <section class="section" id="outreach" data-toc="Outreach">
-        <h2>Outreach</h2>
-        <ul>
-            <li><strong>Pint of Science</strong> — scientific outreach events.</li>
-            <li><strong>Les étoiles brillent pour tous</strong> — science popularisation activities.</li>
-        </ul>
-    </section>
-
-    <!-- SKILLS -->
-    <section class="section" id="skills" data-toc="Skills">
-        <h2>Skills</h2>
-
-        <p class="section-subtitle">Methods & topics</p>
-        <ul>
-            <li>Community and functional ecology, trait-based approaches.</li>
-            <li>Macroecology and biogeography.</li>
-            <li>Biodiversity loss and functional erosion.</li>
-        </ul>
-
-        <p class="section-subtitle">Quantitative & computational</p>
-        <ul>
-            <li>Statistical modelling in R.</li>
-            <li>Large dataset management.</li>
-            <li>Reproducible coding & Git/GitHub.</li>
-        </ul>
-
-        <p class="section-subtitle">Fieldwork & tropical experience</p>
-        <ul>
-            <li>Tropical freshwater systems.</li>
-            <li>Sampling vertebrate communities.</li>
-        </ul>
-    </section>
-
-    <!-- FIELDWORK -->
-  
-    <section class="section" id="fieldwork" data-toc="Fieldwork">
-      <h2>Fieldwork</h2>
-      <p>Examples of tropical freshwater fieldwork environments and sampling contexts.</p>
-    
-      <div class="carousel" id="fieldworkCarousel" aria-label="Fieldwork photo carousel">
-        <button class="carousel-btn prev" type="button" aria-label="Previous photo">‹</button>
-    
-        <div class="carousel-viewport">
-          <div class="carousel-track">
-            <img src="fieldwork1.JPG" class="carousel-slide" alt="Fieldwork photo 1" loading="lazy">
-            <img src="fieldwork2.JPG" class="carousel-slide" alt="Fieldwork photo 2" loading="lazy">
-            <img src="Fieldwork3.JPG" class="carousel-slide" alt="Fieldwork photo 3" loading="lazy">
-            <img src="Fieldwork4.jpg" class="carousel-slide" alt="Fieldwork photo 4" loading="lazy">
-            <img src="Fieldwork5.JPG" class="carousel-slide" alt="Fieldwork photo 5" loading="lazy">
-            <img src="Fieldwork6.JPG" class="carousel-slide" alt="Fieldwork photo 6" loading="lazy">
-            <img src="Fieldwork7.jpg" class="carousel-slide" alt="Fieldwork photo 7" loading="lazy">
-          </div>
-        </div>
-    
-        <button class="carousel-btn next" type="button" aria-label="Next photo">›</button>
+    <div class="top-right">
+      <div class="top-links">
+        <a class="top-link" href="https://www.researchgate.net/profile/Pierre-Bouchet-2?ev=hdr_xprf" target="_blank"
+          rel="noopener noreferrer">
+          <img class="icon" alt="ResearchGate"
+            src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/researchgate.svg">
+        </a>
+        <a class="top-link" href="https://www.linkedin.com/in/pierrebouchetprofile/" target="_blank"
+          rel="noopener noreferrer">
+          <img class="icon" alt="LinkedIn" src="linkedin.svg">
+        </a>
+        <a class="top-link" href="https://orcid.org/0009-0000-5907-9364" target="_blank" rel="noopener noreferrer">
+          <img class="icon" alt="ORCID"
+            src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/orcid.svg">
+        </a>
+        <a class="top-link" href="https://github.com/pierrolaloune" target="_blank" rel="noopener noreferrer">
+          <img class="icon" alt="GitHub" src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/github.svg">
+        </a>
       </div>
-    
-      <div class="carousel-dots" id="fieldworkDots" aria-label="Carousel navigation dots"></div>
-    </section>
 
-    <!-- CONTACT -->
-    <section class="section" id="contact" data-toc="Contact">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:pierre.bouchet@utoulouse.fr">pierre.bouchet@utoulouse.fr</a></p>
-        <p class="muted">Feel free to reach out for collaborations or research inquiries.</p>
-    </section>
+      <button class="theme-toggle" id="themeToggle" type="button">🌙 / ☀</button>
+    </div>
+  </header>
 
-    
-   <script>
-  // Theme toggle
-  const toggle = document.getElementById('themeToggle');
-  const body = document.body;
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <img src="profile.JPG" class="profile-pic" alt="Profile picture">
 
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme === 'light') body.classList.add('light-theme');
+      <div class="hero-title">Pierre Bouchet</div>
+      <div class="hero-subtitle">PhD student in ecology & biogeography — CRBE, Université Toulouse III</div>
 
-  toggle.addEventListener('click', () => {
-    body.classList.toggle('light-theme');
-    localStorage.setItem('theme', body.classList.contains('light-theme') ? 'light' : 'dark');
-  });
+      <p class="hero-text">
+        I study how human activities reshape biodiversity patterns and functional diversity. My research integrates
+        trait-based ecology, macroecology and conservation biology to understand why certain vertebrates are more
+        exploited than others, and how this affects extinction risk and ecosystem functioning.
+      </p>
+    </div>
+  </section>
 
-  // -------- Dynamic Table of Contents --------
-  const toc = document.getElementById('toc');
-  if (toc) {
-    const sections = Array.from(document.querySelectorAll('section.section[id]'));
+  <!-- DYNAMIC TABLE OF CONTENTS -->
+  <nav class="nav-sections" id="toc">
+    <span class="toc-label">Sections:</span>
+  </nav>
 
-    const frag = document.createDocumentFragment();
-    sections.forEach(sec => {
-      const label = sec.getAttribute('data-toc') || (sec.querySelector('h2')?.textContent ?? sec.id);
-      const a = document.createElement('a');
-      a.href = `#${sec.id}`;
-      a.textContent = label;
-      a.dataset.target = sec.id;
-      frag.appendChild(a);
+  <!-- ABOUT -->
+  <section class="section" id="about" data-toc="About">
+    <h2>About</h2>
+    <p>
+      I am a PhD student in ecology and biogeography at the <strong>CRBE</strong>, Université Toulouse III – Paul Sabatier,
+      supervised by <strong>Sébastien Brosse</strong> and <strong>Aurèle Toussaint</strong>.
+    </p>
+    <p>
+      My research focuses on understanding how human uses of vertebrates (fisheries, hunting, trade, recreation)
+      influence biodiversity patterns and functional diversity at global scales.
+    </p>
+  </section>
+
+  <!-- RESEARCH -->
+  <section class="section" id="research" data-toc="Research">
+    <h2>Research</h2>
+    <p>
+      My thesis examines how humans selectively exploit vertebrate species and how this selection translates into
+      non-random patterns in functional trait space. I investigate:
+    </p>
+
+    <ul>
+      <li>Functional traits influencing human use (fisheries, hunting, trade, recreation).</li>
+      <li>Links between human exploitation, extinction risk, and invasion potential.</li>
+      <li>Regional variations in functional trait patterns based on local human pressures.</li>
+    </ul>
+
+    <p>
+      The work adopts a <strong>macroecological, cross-taxon</strong> perspective, relying on large trait datasets,
+      global distribution information, and conservation assessments.
+    </p>
+
+    <div class="wordcloud-container">
+      <img src="nuage-de-mots.png" alt="Research keyword wordcloud" class="wordcloud-img">
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section" id="projects" data-toc="Projects">
+    <h2>Projects</h2>
+
+    <div class="item-block">
+      <div class="item-title">PhD — Functional diversity of vertebrates and human use</div>
+      <p class="item-sub">
+        Links between functional traits, anthropogenic use, and the biodiversity crisis.
+      </p>
+    </div>
+
+    <div class="item-block">
+      <div class="item-title">INTRAIT — Intra-specific trait variability in freshwater fish</div>
+      <p class="item-sub">
+        Consortium project on intraspecific trait variation (ITV) and its implications for functional ecology.
+      </p>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section class="section" id="publications" data-toc="Publications">
+    <h2>Publications</h2>
+    <p class="course-desc">Selected publications will appear here soon.</p>
+  </section>
+
+  <!-- EDUCATION -->
+  <section class="section" id="education" data-toc="Education">
+    <h2>Education</h2>
+
+    <div class="timeline" id="eduTimeline" aria-label="Education timeline">
+      <div class="timeline-line" aria-hidden="true"></div>
+      <div class="timeline-progress" id="eduProgress" aria-hidden="true"></div>
+
+      <article class="timeline-item">
+        <div class="timeline-dot" aria-hidden="true"></div>
+        <div class="timeline-content">
+          <div class="timeline-title">BSc Biology — Ecology, Evolution, Systematics & Population Biology</div>
+          <div class="timeline-meta">2018 – 2020</div>
+          <p class="timeline-desc">
+            Foundations in organismal biology, ecology, evolutionary processes, and quantitative approaches.
+          </p>
+        </div>
+      </article>
+
+      <article class="timeline-item">
+        <div class="timeline-dot" aria-hidden="true"></div>
+        <div class="timeline-content">
+          <div class="timeline-title">BSc Geography — Spatial Planning & Territorial Development</div>
+          <div class="timeline-meta">2020 – 2022</div>
+          <p class="timeline-desc">
+            Spatial thinking, land-use dynamics, and socio-environmental systems at multiple scales.
+          </p>
+        </div>
+      </article>
+
+      <article class="timeline-item">
+        <div class="timeline-dot" aria-hidden="true"></div>
+        <div class="timeline-content">
+          <div class="timeline-title">MSc (M1) Evolutionary & Functional Ecology</div>
+          <div class="timeline-meta">2022 – 2023</div>
+          <p class="timeline-desc">
+            Trait-based ecology, community dynamics, and eco-evolutionary theory with data-driven methods.
+          </p>
+        </div>
+      </article>
+
+      <article class="timeline-item">
+        <div class="timeline-dot" aria-hidden="true"></div>
+        <div class="timeline-content">
+          <div class="timeline-title">MSc (M2) Biodiversity & Ecosystem Functioning (BIFE)</div>
+          <div class="timeline-meta">2023 – 2024</div>
+          <p class="timeline-desc">
+            Macroecology, conservation science, and ecosystem functioning; advanced analysis workflows in R.
+          </p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- TEACHING -->
+  <section class="section" id="teaching" data-toc="Teaching">
+    <h2>Teaching</h2>
+
+    <ul class="course-list">
+      <li class="course-item">
+        <div class="course-title">
+          <span>Zoology</span>
+          <span class="course-meta">— 32 h/year (Licence 1)</span>
+        </div>
+        <p class="course-desc">
+          Introductory zoology covering major animal lineages, comparative anatomy, and core concepts in organismal biology.
+        </p>
+      </li>
+
+      <li class="course-item">
+        <div class="course-title">
+          <span>Aquatic Ecology</span>
+          <span class="course-meta">— 15 h/year (Licence 3)</span>
+        </div>
+        <p class="course-desc">
+          Ecological functioning of freshwater systems, community dynamics, and links between environmental gradients and biodiversity.
+        </p>
+      </li>
+
+      <li class="course-item">
+        <div class="course-title">
+          <span>Chemical Ecology</span>
+          <span class="course-meta">— 15 h/year (Licence 3)</span>
+        </div>
+        <p class="course-desc">
+          Chemical-mediated interactions (defense, communication, foraging) across trophic levels, with ecological and evolutionary perspectives.
+        </p>
+      </li>
+
+      <li class="course-item">
+        <div class="course-title">
+          <span>General Ecology</span>
+          <span class="course-meta">— 9 h/year (Licence 2)</span>
+        </div>
+        <p class="course-desc">
+          Foundations of ecology: populations, communities, ecosystems, and key drivers of biodiversity patterns.
+        </p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- SUPERVISION -->
+  <section class="section" id="supervision" data-toc="Supervision">
+    <h2>Supervision</h2>
+
+    <div class="item-block">
+      <div class="item-title">Pierre Bertrand — February 2026 – ongoing</div>
+      <p class="item-sub">
+        <em>Intraspecific trait variation of freshwater fish from French Guiana</em> — co-supervision.
+      </p>
+    </div>
+  </section>
+
+  <!-- TALKS -->
+  <section class="section" id="talks" data-toc="Talks">
+    <h2>Talks</h2>
+    <ul>
+      <li><strong>2025 – Ecology & Behaviour</strong><br>
+        “Threatened freshwater fish used by humans support unique morphological traits.”
+      </li>
+    </ul>
+
+    <div class="talks-image">
+      <img src="conference.jpg" alt="Conference presentation" class="talk-img">
+    </div>
+  </section>
+
+  <!-- OUTREACH -->
+  <section class="section" id="outreach" data-toc="Outreach">
+    <h2>Outreach</h2>
+    <ul>
+      <li><strong>Pint of Science</strong> — scientific outreach events.</li>
+      <li><strong>Les étoiles brillent pour tous</strong> — science popularisation activities.</li>
+    </ul>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="section" id="skills" data-toc="Skills">
+    <h2>Skills</h2>
+
+    <p class="section-subtitle">Methods & topics</p>
+    <ul>
+      <li>Community and functional ecology, trait-based approaches.</li>
+      <li>Macroecology and biogeography.</li>
+      <li>Biodiversity loss and functional erosion.</li>
+    </ul>
+
+    <p class="section-subtitle">Quantitative & computational</p>
+    <ul>
+      <li>Statistical modelling in R.</li>
+      <li>Large dataset management.</li>
+      <li>Reproducible coding & Git/GitHub.</li>
+    </ul>
+
+    <p class="section-subtitle">Fieldwork & tropical experience</p>
+    <ul>
+      <li>Tropical freshwater systems.</li>
+      <li>Sampling vertebrate communities.</li>
+    </ul>
+  </section>
+
+  <!-- FIELDWORK -->
+  <section class="section" id="fieldwork" data-toc="Fieldwork">
+    <h2>Fieldwork</h2>
+    <p>Examples of tropical freshwater fieldwork environments and sampling contexts.</p>
+
+    <div class="carousel" id="fieldworkCarousel" aria-label="Fieldwork photo carousel">
+      <button class="carousel-btn prev" type="button" aria-label="Previous photo">‹</button>
+
+      <div class="carousel-viewport">
+        <div class="carousel-track">
+          <img src="fieldwork1.JPG" class="carousel-slide" alt="Fieldwork photo 1" loading="lazy">
+          <img src="fieldwork2.JPG" class="carousel-slide" alt="Fieldwork photo 2" loading="lazy">
+          <img src="Fieldwork3.JPG" class="carousel-slide" alt="Fieldwork photo 3" loading="lazy">
+          <img src="Fieldwork4.jpg" class="carousel-slide" alt="Fieldwork photo 4" loading="lazy">
+          <img src="Fieldwork5.JPG" class="carousel-slide" alt="Fieldwork photo 5" loading="lazy">
+          <img src="Fieldwork6.JPG" class="carousel-slide" alt="Fieldwork photo 6" loading="lazy">
+          <img src="Fieldwork7.jpg" class="carousel-slide" alt="Fieldwork photo 7" loading="lazy">
+        </div>
+      </div>
+
+      <button class="carousel-btn next" type="button" aria-label="Next photo">›</button>
+    </div>
+
+    <div class="carousel-dots" id="fieldworkDots" aria-label="Carousel navigation dots"></div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact" data-toc="Contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:pierre.bouchet@utoulouse.fr">pierre.bouchet@utoulouse.fr</a></p>
+    <p class="muted">Feel free to reach out for collaborations or research inquiries.</p>
+  </section>
+
+  <!-- BACK TO TOP (must be inside body, ideally near end) -->
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">↑ Top</button>
+
+  <script>
+    // Theme toggle
+    const toggle = document.getElementById('themeToggle');
+    const body = document.body;
+
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') body.classList.add('light-theme');
+
+    toggle.addEventListener('click', () => {
+      body.classList.toggle('light-theme');
+      localStorage.setItem('theme', body.classList.contains('light-theme') ? 'light' : 'dark');
     });
-    toc.appendChild(frag);
 
-    const tocLinks = Array.from(toc.querySelectorAll('a[data-target]'));
-    const linkById = new Map(tocLinks.map(a => [a.dataset.target, a]));
+    // -------- Dynamic Table of Contents --------
+    const toc = document.getElementById('toc');
+    if (toc) {
+      const sections = Array.from(document.querySelectorAll('section.section[id]'));
 
-    const observer = new IntersectionObserver((entries) => {
-      const visible = entries
-        .filter(e => e.isIntersecting)
-        .sort((a, b) => (a.boundingClientRect.top - b.boundingClientRect.top))[0];
+      const frag = document.createDocumentFragment();
+      sections.forEach(sec => {
+        const label = sec.getAttribute('data-toc') || (sec.querySelector('h2')?.textContent ?? sec.id);
+        const a = document.createElement('a');
+        a.href = `#${sec.id}`;
+        a.textContent = label;
+        a.dataset.target = sec.id;
+        frag.appendChild(a);
+      });
+      toc.appendChild(frag);
 
-      if (!visible) return;
+      const tocLinks = Array.from(toc.querySelectorAll('a[data-target]'));
+      const linkById = new Map(tocLinks.map(a => [a.dataset.target, a]));
 
-      tocLinks.forEach(a => a.classList.remove('active'));
-      const active = linkById.get(visible.target.id);
-      if (active) active.classList.add('active');
-    }, {
-      root: null,
-      threshold: 0.25,
-      rootMargin: "-20% 0px -60% 0px"
-    });
+      const observer = new IntersectionObserver((entries) => {
+        const visible = entries
+          .filter(e => e.isIntersecting)
+          .sort((a, b) => (a.boundingClientRect.top - b.boundingClientRect.top))[0];
 
-    sections.forEach(sec => observer.observe(sec));
-  }
+        if (!visible) return;
 
-  // -------- Fieldwork Carousel --------
-  (function () {
-    const root = document.getElementById('fieldworkCarousel');
-    if (!root) return;
+        tocLinks.forEach(a => a.classList.remove('active'));
+        const active = linkById.get(visible.target.id);
+        if (active) active.classList.add('active');
+      }, {
+        root: null,
+        threshold: 0.25,
+        rootMargin: "-20% 0px -60% 0px"
+      });
 
-    const track = root.querySelector('.carousel-track');
-    const slides = Array.from(root.querySelectorAll('.carousel-slide'));
-    const btnPrev = root.querySelector('.carousel-btn.prev');
-    const btnNext = root.querySelector('.carousel-btn.next');
-    const dotsWrap = document.getElementById('fieldworkDots');
-
-    if (!track || slides.length === 0 || !btnPrev || !btnNext || !dotsWrap) return;
-
-    let index = 0;
-    let autoplayId = null;
-    const AUTOPLAY_MS = 4200;
-
-    const dots = slides.map((_, i) => {
-      const d = document.createElement('button');
-      d.type = 'button';
-      d.className = 'carousel-dot';
-      d.setAttribute('aria-label', `Go to photo ${i + 1}`);
-      d.addEventListener('click', () => goTo(i, true));
-      dotsWrap.appendChild(d);
-      return d;
-    });
-
-    function update() {
-      track.style.transform = `translateX(${-index * 100}%)`;
-      dots.forEach((d, i) => d.classList.toggle('active', i === index));
+      sections.forEach(sec => observer.observe(sec));
     }
 
-    function goTo(i, userInitiated = false) {
-      index = (i + slides.length) % slides.length;
-      update();
-      if (userInitiated) restartAutoplay();
-    }
+    // -------- Fieldwork Carousel --------
+    (function () {
+      const root = document.getElementById('fieldworkCarousel');
+      if (!root) return;
 
-    function next(user = false) { goTo(index + 1, user); }
-    function prev(user = false) { goTo(index - 1, user); }
+      const track = root.querySelector('.carousel-track');
+      const slides = Array.from(root.querySelectorAll('.carousel-slide'));
+      const btnPrev = root.querySelector('.carousel-btn.prev');
+      const btnNext = root.querySelector('.carousel-btn.next');
+      const dotsWrap = document.getElementById('fieldworkDots');
 
-    btnNext.addEventListener('click', () => next(true));
-    btnPrev.addEventListener('click', () => prev(true));
+      if (!track || slides.length === 0 || !btnPrev || !btnNext || !dotsWrap) return;
 
-    root.tabIndex = 0;
-    root.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight') next(true);
-      if (e.key === 'ArrowLeft') prev(true);
-    });
+      let index = 0;
+      let autoplayId = null;
+      const AUTOPLAY_MS = 4200;
 
-    function startAutoplay() {
-      stopAutoplay();
-      autoplayId = window.setInterval(() => next(false), AUTOPLAY_MS);
-    }
-    function stopAutoplay() {
-      if (autoplayId) window.clearInterval(autoplayId);
-      autoplayId = null;
-    }
-    function restartAutoplay() { startAutoplay(); }
+      const dots = slides.map((_, i) => {
+        const d = document.createElement('button');
+        d.type = 'button';
+        d.className = 'carousel-dot';
+        d.setAttribute('aria-label', `Go to photo ${i + 1}`);
+        d.addEventListener('click', () => goTo(i, true));
+        dotsWrap.appendChild(d);
+        return d;
+      });
 
-    root.addEventListener('mouseenter', stopAutoplay);
-    root.addEventListener('mouseleave', startAutoplay);
-    root.addEventListener('focusin', stopAutoplay);
-    root.addEventListener('focusout', startAutoplay);
-
-    let startX = null;
-    root.addEventListener('touchstart', (e) => {
-      startX = e.touches[0].clientX;
-    }, { passive: true });
-
-    root.addEventListener('touchend', (e) => {
-      if (startX === null) return;
-      const endX = e.changedTouches[0].clientX;
-      const dx = endX - startX;
-      startX = null;
-      if (Math.abs(dx) > 40) {
-        if (dx < 0) next(true);
-        else prev(true);
+      function update() {
+        track.style.transform = `translateX(${-index * 100}%)`;
+        dots.forEach((d, i) => d.classList.toggle('active', i === index));
       }
-    }, { passive: true });
 
-    update();
-    startAutoplay();
-  })();
-</script>
+      function goTo(i, userInitiated = false) {
+        index = (i + slides.length) % slides.length;
+        update();
+        if (userInitiated) restartAutoplay();
+      }
 
+      function next(user = false) { goTo(index + 1, user); }
+      function prev(user = false) { goTo(index - 1, user); }
+
+      btnNext.addEventListener('click', () => next(true));
+      btnPrev.addEventListener('click', () => prev(true));
+
+      root.tabIndex = 0;
+      root.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') next(true);
+        if (e.key === 'ArrowLeft') prev(true);
+      });
+
+      function startAutoplay() {
+        stopAutoplay();
+        autoplayId = window.setInterval(() => next(false), AUTOPLAY_MS);
+      }
+
+      function stopAutoplay() {
+        if (autoplayId) window.clearInterval(autoplayId);
+        autoplayId = null;
+      }
+
+      function restartAutoplay() { startAutoplay(); }
+
+      root.addEventListener('mouseenter', stopAutoplay);
+      root.addEventListener('mouseleave', startAutoplay);
+      root.addEventListener('focusin', stopAutoplay);
+      root.addEventListener('focusout', startAutoplay);
+
+      let startX = null;
+      root.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+      }, { passive: true });
+
+      root.addEventListener('touchend', (e) => {
+        if (startX === null) return;
+        const endX = e.changedTouches[0].clientX;
+        const dx = endX - startX;
+        startX = null;
+        if (Math.abs(dx) > 40) {
+          if (dx < 0) next(true);
+          else prev(true);
+        }
+      }, { passive: true });
+
+      update();
+      startAutoplay();
+    })();
+
+    // -------- Education Timeline: active dots + progress line --------
+    (function () {
+      const timeline = document.getElementById('eduTimeline');
+      const progress = document.getElementById('eduProgress');
+      if (!timeline || !progress) return;
+
+      const items = Array.from(timeline.querySelectorAll('.timeline-item'));
+      if (items.length === 0) return;
+
+      const TOP_OFFSET_PX = 22; // aligns with dot (top: 22px)
+
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) e.target.classList.add('is-active');
+        });
+
+        const active = items
+          .map((el, i) => ({ el, i, active: el.classList.contains('is-active') }))
+          .filter(x => x.active)
+          .sort((a, b) => a.i - b.i);
+
+        if (active.length === 0) {
+          progress.style.height = '0px';
+          return;
+        }
+
+        const last = active[active.length - 1].el;
+        const tlRect = timeline.getBoundingClientRect();
+        const lastRect = last.getBoundingClientRect();
+
+        const lastDotY = (lastRect.top - tlRect.top) + TOP_OFFSET_PX;
+        const h = Math.max(0, Math.min(lastDotY, tlRect.height));
+        progress.style.height = `${h}px`;
+      }, {
+        threshold: 0.35
+      });
+
+      items.forEach(el => io.observe(el));
+
+      window.addEventListener('resize', () => {
+        const active = items
+          .map((el, i) => ({ el, i, active: el.classList.contains('is-active') }))
+          .filter(x => x.active)
+          .sort((a, b) => a.i - b.i);
+
+        if (active.length === 0) {
+          progress.style.height = '0px';
+          return;
+        }
+
+        const last = active[active.length - 1].el;
+        const tlRect = timeline.getBoundingClientRect();
+        const lastRect = last.getBoundingClientRect();
+
+        const lastDotY = (lastRect.top - tlRect.top) + TOP_OFFSET_PX;
+        const h = Math.max(0, Math.min(lastDotY, tlRect.height));
+        progress.style.height = `${h}px`;
+      });
+    })();
+
+    // -------- Section reveal on scroll --------
+    (function () {
+      const sections = Array.from(document.querySelectorAll('section.section'));
+      sections.forEach(s => s.classList.add('reveal'));
+
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) e.target.classList.add('is-visible');
+        });
+      }, { threshold: 0.12 });
+
+      sections.forEach(s => io.observe(s));
+    })();
+
+    // -------- Back to top button --------
+    (function () {
+      const btn = document.getElementById('backToTop');
+      if (!btn) return;
+
+      function onScroll() {
+        const y = window.scrollY || document.documentElement.scrollTop;
+        btn.classList.toggle('show', y > 600);
+      }
+
+      btn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
+  </script>
 
 </body>
+
 </html>
