@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Pierre Bouchet — Ecology & Biogeography</title>
 
+  <!-- SEO -->
   <meta name="description" content="Pierre Bouchet — PhD student in community ecology and geography. Research on functional traits, macroecology, and the Anthropocene." />
   <meta name="author" content="Pierre Bouchet" />
   <meta property="og:image" content="profile.JPG" />
@@ -35,16 +36,16 @@
       --accent-glow: rgba(227, 196, 112, 0.1);
       
       /* Dimensions */
-      --max-w: 1000px;
+      --max-w: 1050px;
       --header-h: 64px;
-      --radius: 8px; /* Slightly sharper for a "rugged" look */
+      --radius: 6px; /* Technical/Rugged radius */
       
       /* Fonts */
       --font-sans: "Inter", system-ui, -apple-system, sans-serif;
       --font-mono: "JetBrains Mono", Consolas, monospace;
     }
 
-    /* Light Mode Overrides (Paper Map Style) */
+    /* Light Mode Overrides (Topographic Map Style) */
     html.light {
       --bg: #fdfbf7; /* Old Paper */
       --surface: #f0efe9;
@@ -92,17 +93,13 @@
     
     .mono { font-family: var(--font-mono); font-size: 0.85em; }
     
-    /* Text selection color */
-    ::selection {
-      background: var(--accent-pri);
-      color: var(--bg);
-    }
+    ::selection { background: var(--accent-pri); color: var(--bg); }
 
     /* ==========================================================
        LAYOUT & NAV
        ========================================================== */
     .container {
-      width: min(90%, var(--max-w));
+      width: min(92%, var(--max-w));
       margin: 0 auto;
       position: relative;
       z-index: 2;
@@ -138,8 +135,8 @@
     }
     
     .nav-link {
-      padding: 6px 16px;
-      font-size: 0.85rem;
+      padding: 6px 14px;
+      font-size: 0.8rem;
       border-radius: 99px;
       color: var(--text-muted);
       font-weight: 500;
@@ -161,8 +158,8 @@
       background: transparent;
       border: 1px solid var(--border);
       color: var(--text-muted);
-      width: 38px; height: 38px;
-      border-radius: 8px;
+      width: 36px; height: 36px;
+      border-radius: 6px;
       display: grid;
       place-items: center;
       cursor: pointer;
@@ -170,7 +167,7 @@
     }
     .btn-icon:hover { border-color: var(--accent-pri); color: var(--accent-pri); }
 
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
       .nav-links { display: none; }
     }
 
@@ -178,10 +175,10 @@
        HERO
        ========================================================== */
     .hero {
-      padding: 90px 0 70px;
+      padding: 100px 0 80px;
       display: grid;
-      grid-template-columns: 1.2fr 320px;
-      gap: 50px;
+      grid-template-columns: 1.2fr 300px;
+      gap: 60px;
       align-items: center;
     }
 
@@ -193,30 +190,20 @@
     .hero-main h1 {
       font-size: clamp(2.2rem, 4.5vw, 3.2rem);
       margin: 0 0 24px 0;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
       color: var(--text-main);
     }
 
     .highlight {
-      position: relative;
-      white-space: nowrap;
       color: var(--accent-pri);
+      position: relative;
       display: inline-block;
-    }
-    
-    .highlight::after {
-      content: "";
-      position: absolute;
-      left: 0; bottom: 4px; width: 100%; height: 8px;
-      background: var(--accent-pri);
-      opacity: 0.15;
-      transform: skewX(-15deg);
-      z-index: -1;
+      transition: opacity 0.3s ease; /* Fluidity for rotator */
     }
 
     .hero-main p {
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       color: var(--text-muted);
       max-width: 65ch;
       margin-bottom: 34px;
@@ -227,12 +214,13 @@
     .chip {
       font-family: var(--font-mono);
       font-size: 0.75rem;
-      padding: 6px 14px;
-      border-radius: 99px; /* Pill shape */
+      padding: 6px 12px;
+      border-radius: 4px;
       background: var(--surface);
       border: 1px solid var(--border);
       color: var(--accent-sec);
-      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
     
     .btn-primary {
@@ -243,29 +231,17 @@
       color: #171b21; /* Contrast text */
       font-weight: 700;
       padding: 12px 24px;
-      border-radius: 8px;
+      border-radius: 6px;
       transition: transform 0.2s;
     }
     .btn-primary:hover { transform: translateY(-2px); opacity: 0.95; }
-
-    .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      padding: 12px 24px;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      color: var(--text-main);
-      margin-left: 12px;
-      transition: background 0.2s;
-    }
-    .btn-secondary:hover { background: var(--surface); border-color: var(--accent-pri); }
 
     /* Profile Card */
     .card {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 24px;
+      padding: 20px;
       box-shadow: 0 20px 40px rgba(0,0,0,0.2);
     }
     
@@ -273,10 +249,9 @@
       width: 100%;
       aspect-ratio: 1/1;
       object-fit: cover;
-      border-radius: 6px;
+      border-radius: 4px;
       margin-bottom: 20px;
       border: 1px solid var(--border);
-      /* Sepia tone to match "Vintage National Park" vibe */
       filter: sepia(10%) contrast(105%); 
       transition: filter 0.3s;
     }
@@ -285,12 +260,12 @@
     .stat-row {
       display: flex;
       justify-content: space-between;
-      padding: 14px 0;
+      padding: 12px 0;
       border-bottom: 1px solid rgba(255,255,255,0.05);
       font-size: 0.9rem;
     }
     .stat-row:last-child { border-bottom: none; padding-bottom: 0; }
-    .stat-label { color: var(--text-muted); font-family: var(--font-mono); font-size: 0.8em; text-transform: uppercase;}
+    .stat-label { color: var(--text-muted); font-family: var(--font-mono); font-size: 0.75em; text-transform: uppercase;}
     .stat-val { font-weight: 700; color: var(--text-main); }
 
     /* ==========================================================
@@ -298,7 +273,7 @@
        ========================================================== */
     .section { padding: 80px 0; border-top: 1px dashed var(--border); }
     
-    .section-head { margin-bottom: 40px; }
+    .section-head { margin-bottom: 40px; display: flex; align-items: baseline; gap: 16px; }
     
     .section-title {
       font-size: 1.8rem;
@@ -306,7 +281,6 @@
       letter-spacing: -0.02em;
       margin: 0;
       color: var(--text-main);
-      display: flex; align-items: center; gap: 12px;
     }
     
     .section-number {
@@ -315,41 +289,80 @@
       font-size: 1rem;
     }
 
-    .text-block p {
-      margin-bottom: 1.5em;
-      color: var(--text-muted);
-      font-size: 1.05rem;
+    .text-block p { margin-bottom: 1.5em; color: var(--text-muted); font-size: 1.05rem; }
+    .text-block strong { color: var(--text-main); font-weight: 600; }
+    
+    /* About Section Specifics */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    @media (max-width: 850px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .about-img-container { order: -1; margin-bottom: 20px; }
     }
     
-    .text-block strong { color: var(--text-main); font-weight: 600; }
+    .about-img {
+      width: 100%;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      /* Modern UI styling: Offset shadow */
+      box-shadow: 12px 12px 0px rgba(227, 196, 112, 0.08); 
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .about-img:hover {
+      transform: translate(-4px, -4px);
+      box-shadow: 16px 16px 0px rgba(227, 196, 112, 0.15);
+      border-color: var(--accent-pri);
+    }
 
-    /* Research Items */
+    /* Grid Layouts */
     .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
     @media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } }
 
+    /* Items (Research, Teaching cards) */
     .item {
       padding: 24px;
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       transition: all 0.2s;
+      display: flex; flex-direction: column;
       height: 100%;
     }
     .item:hover {
       border-color: var(--accent-pri);
       transform: translateY(-3px);
-      box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
     }
     
-    .item h3 { margin: 0 0 10px 0; font-size: 1.25rem; }
+    .item h3 { margin: 0 0 10px 0; font-size: 1.2rem; }
     .item-tag { 
       font-family: var(--font-mono); font-size: 0.75rem; 
       color: var(--accent-sec); margin-bottom: 12px; display: block; 
       text-transform: uppercase; letter-spacing: 0.05em;
     }
 
-    /* Timeline */
-    .timeline { border-left: 2px solid var(--surface-hover); padding-left: 30px; }
+    /* Publications List Style */
+    .pub-list { display: flex; flex-direction: column; gap: 16px; }
+    .pub-item {
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      gap: 20px;
+      padding: 16px;
+      border-left: 2px solid var(--border);
+      background: linear-gradient(90deg, var(--surface) 0%, transparent 100%);
+    }
+    .pub-year { font-family: var(--font-mono); color: var(--accent-pri); font-weight: bold; }
+    .pub-title { font-weight: 600; color: var(--text-main); margin-bottom: 4px; display: block; }
+    .pub-journal { font-style: italic; color: var(--accent-sec); font-size: 0.9rem; }
+
+    /* Timeline (CV) */
+    .timeline { border-left: 2px solid var(--surface-hover); padding-left: 30px; margin-left: 8px; }
     .timeline-item { position: relative; margin-bottom: 40px; }
     .timeline-item::before {
       content: "";
@@ -362,7 +375,7 @@
     }
     .timeline-date { color: var(--accent-pri); font-family: var(--font-mono); font-size: 0.85rem; margin-bottom: 6px; }
 
-    /* Gallery */
+    /* Carousel */
     .carousel-wrap {
       border-radius: var(--radius);
       overflow: hidden;
@@ -371,7 +384,7 @@
       background: #000;
     }
     .carousel-track { display: flex; transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1); }
-    .carousel-img { min-width: 100%; height: 450px; object-fit: cover; opacity: 0.9; }
+    .carousel-img { min-width: 100%; height: 500px; object-fit: cover; opacity: 0.9; }
     
     .carousel-nav {
       position: absolute; bottom: 20px; right: 20px; display: flex; gap: 10px;
@@ -405,6 +418,9 @@
       <div class="nav-links">
         <a href="#about" class="nav-link">About</a>
         <a href="#research" class="nav-link">Research</a>
+        <a href="#publications" class="nav-link">Publications</a>
+        <a href="#talks" class="nav-link">Talks</a>
+        <a href="#teaching" class="nav-link">Teaching</a>
         <a href="#cv" class="nav-link">CV</a>
         <a href="#fieldwork" class="nav-link">Fieldwork</a>
       </div>
@@ -422,12 +438,13 @@
 
   <main class="container">
     
+    <!-- Hero -->
     <section class="hero">
       <div class="hero-main">
         <div class="mono" style="color:var(--accent-pri); margin-bottom:16px;">PhD Candidate • CRBE Toulouse</div>
         <h1>
-          Geographer & <br>
-          <span class="highlight">Community Ecologist</span>.
+          Geography & <br>
+          <span class="highlight" id="rotator">Community Ecology</span>.
         </h1>
         <p>
           I investigate the functional fingerprint of human activities on the living world. 
@@ -443,7 +460,6 @@
 
         <div>
           <a href="mailto:pierre.bouchet@utoulouse.fr" class="btn-primary">Contact Me</a>
-          <a href="#research" class="btn-secondary">Explore Work</a>
         </div>
       </div>
 
@@ -452,7 +468,7 @@
           <img src="profile.JPG" alt="Pierre Bouchet" class="profile-img">
           <div class="stat-row">
             <span class="stat-label">Location</span>
-            <span class="stat-val">Toulouse, FR</span>
+            <span class="stat-val">Toulouse, FR 🇫🇷</span>
           </div>
           <div class="stat-row">
             <span class="stat-label">Focus</span>
@@ -466,26 +482,37 @@
       </aside>
     </section>
 
+    <!-- About (Updated with Side Image) -->
     <section id="about" class="section">
       <div class="section-head">
-        <h2 class="section-title"><span class="section-number">01.</span> About Me</h2>
+        <span class="section-number">01.</span>
+        <h2 class="section-title">About Me</h2>
       </div>
-      <div class="text-block" style="max-width: 75ch;">
-        <p>
-          As a <strong>geographer specializing in community ecology</strong>, I bridge the gap between spatial dynamics and functional biodiversity. My research employs a trait-based approach to decipher macroecological patterns and understand the specific footprint of human activities on the biosphere.
-        </p>
-        <p>
-          I frame my work within the context of the <strong>Anthropocene</strong>, addressing critical conservation challenges such as human-wildlife coexistence and functional erosion. I am particularly interested in how selective exploitation (fisheries, trade) filters traits and alters ecosystem functioning at global scales.
-        </p>
-        <p>
-          Beyond the data, I am deeply committed to an <strong>inclusive, collaborative, and international</strong> scientific practice. I strive to democratize access to knowledge and reduce inequalities in research. When I’m not coding in R, you will likely find me hiking in the woods with my dog or camping in the mountains, seeking the very wilderness I study.
-        </p>
+      
+      <div class="about-grid">
+        <div class="text-block">
+          <p>
+            As a <strong>geographer specializing in community ecology</strong>, I bridge the gap between spatial dynamics and functional biodiversity. My research employs a trait-based approach to decipher macroecological patterns and understand the specific footprint of human activities on the biosphere.
+          </p>
+          <p>
+            I frame my work within the context of the <strong>Anthropocene</strong>, addressing critical conservation challenges such as human-wildlife coexistence and functional erosion. I am particularly interested in how selective exploitation (fisheries, trade) filters traits and alters ecosystem functioning at global scales.
+          </p>
+          <p>
+            Beyond the data, I am deeply committed to an <strong>inclusive, collaborative, and international</strong> scientific practice. I strive to democratize access to knowledge and reduce inequalities in research. When I’m not coding in R, you will likely find me hiking in the woods with my dog or camping in the mountains, seeking the very wilderness I study.
+          </p>
+        </div>
+        
+        <div class="about-img-container">
+          <img src="profile2.jpg" alt="In the field" class="about-img">
+        </div>
       </div>
     </section>
 
+    <!-- Research -->
     <section id="research" class="section">
       <div class="section-head">
-        <h2 class="section-title"><span class="section-number">02.</span> Research</h2>
+        <span class="section-number">02.</span>
+        <h2 class="section-title">Research</h2>
       </div>
       <div class="grid-2">
         <article class="item">
@@ -506,36 +533,123 @@
       </div>
     </section>
 
+    <!-- Publications -->
+    <section id="publications" class="section">
+      <div class="section-head">
+        <span class="section-number">03.</span>
+        <h2 class="section-title">Publications</h2>
+      </div>
+      <div class="pub-list">
+        <div class="pub-item">
+          <div class="pub-year">Prep</div>
+          <div class="pub-content">
+            <span class="pub-title" style="color:var(--text-muted)">Upcoming publications on vertebrate functional erosion.</span>
+            <span class="pub-journal">In preparation</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Talks -->
+    <section id="talks" class="section">
+      <div class="section-head">
+        <span class="section-number">04.</span>
+        <h2 class="section-title">Talks</h2>
+      </div>
+      <div class="grid-2">
+        <div class="pub-list">
+            <div class="pub-item">
+              <div class="pub-year">2025</div>
+              <div class="pub-content">
+                <span class="pub-title">Threatened freshwater fish used by humans support unique morphological traits.</span>
+                <span class="pub-journal">Conference Talk — Ecology & Behaviour</span>
+              </div>
+            </div>
+        </div>
+        <div>
+            <img src="conference.jpg" alt="Conference presentation" style="width:100%; border-radius:var(--radius); border:1px solid var(--border); object-fit:cover; height:100%; max-height:300px;">
+        </div>
+      </div>
+    </section>
+
+    <!-- Teaching & Supervision -->
+    <section id="teaching" class="section">
+      <div class="section-head">
+        <span class="section-number">05.</span>
+        <h2 class="section-title">Teaching & Supervision</h2>
+      </div>
+      
+      <h3 style="margin-bottom:20px; font-size:1.1rem; color:var(--text-muted);">Teaching Activities</h3>
+      <div class="grid-3" style="margin-bottom:40px;">
+        <article class="item">
+          <span class="item-tag">Licence 1 • 32h</span>
+          <h3>Zoology</h3>
+          <p style="font-size:0.9rem; color:var(--text-muted)">Major animal lineages, comparative anatomy, biology fundamentals.</p>
+        </article>
+        <article class="item">
+          <span class="item-tag">Licence 3 • 15h</span>
+          <h3>Aquatic Ecology</h3>
+          <p style="font-size:0.9rem; color:var(--text-muted)">Inventory of aquatic biodiversity, freshwater macroinvertebrates, electrofishing.</p>
+        </article>
+        <article class="item">
+          <span class="item-tag">Licence 3 • 15h</span>
+          <h3>Chemical Ecology</h3>
+          <p style="font-size:0.9rem; color:var(--text-muted)">HPLC, chemical signaling mechanism involving ecological interactions.</p>
+        </article>
+        <article class="item">
+          <span class="item-tag">Licence 2 • 9h</span>
+          <h3>General Ecology</h3>
+          <p style="font-size:0.9rem; color:var(--text-muted)">Soil ecology, identification, and classification of soil fauna.</p>
+        </article>
+      </div>
+
+      <h3 style="margin-bottom:20px; font-size:1.1rem; color:var(--text-muted);">Supervision</h3>
+      <div class="pub-list">
+        <div class="pub-item" style="border-left-color: var(--accent-sec);">
+          <div class="pub-year">2026</div>
+          <div class="pub-content">
+            <span class="pub-title">Pierre Bertrand (MSc Student)</span>
+            <span class="pub-journal">Intraspecific trait variation of freshwater fish from French Guiana.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CV / Pathway -->
     <section id="cv" class="section">
       <div class="section-head">
-        <h2 class="section-title"><span class="section-number">03.</span> Pathway</h2>
+        <span class="section-number">06.</span>
+        <h2 class="section-title">Pathway</h2>
       </div>
       <div class="timeline">
         <div class="timeline-item">
           <div class="timeline-date">2023 — Present</div>
           <h3>PhD in Macroecology</h3>
-          <p class="mono" style="color:var(--text-dim)">CRBE, University of Toulouse III</p>
+          <p class="mono" style="color:var(--text-dim)">CRBE, University of Toulouse</p>
           <p style="color:var(--text-muted); font-size:0.95rem;">Supervisors: Sébastien Brosse & Aurèle Toussaint.</p>
         </div>
         <div class="timeline-item">
           <div class="timeline-date">2022 — 2023</div>
           <h3>MSc Evolutionary & Functional Ecology</h3>
-          <p class="mono" style="color:var(--text-dim)">Univ. Rennes / Univ. Toulouse</p>
+          <p class="mono" style="color:var(--text-dim)">National History Museum, Paris</p>
         </div>
         <div class="timeline-item">
           <div class="timeline-date">2020 — 2022</div>
           <h3>BSc Geography & Spatial Planning</h3>
-          <p class="mono" style="color:var(--text-dim)">Understanding socio-environmental systems.</p>
+          <p class="mono" style="color:var(--text-dim)">Univ. Jean-Monnet, St-Etienne</p>
         </div>
       </div>
     </section>
 
+    <!-- Fieldwork Gallery -->
     <section id="fieldwork" class="section">
       <div class="section-head">
-        <h2 class="section-title"><span class="section-number">04.</span> In the Field</h2>
+        <span class="section-number">07.</span>
+        <h2 class="section-title">In the Field</h2>
       </div>
       <div class="carousel-wrap">
         <div class="carousel-track" id="track">
+          <!-- Replace with your actual photos -->
           <img src="fieldwork1.JPG" class="carousel-img" alt="Fieldwork in the tropics">
           <img src="fieldwork2.JPG" class="carousel-img" alt="Sampling fish">
           <img src="Fieldwork3.JPG" class="carousel-img" alt="Mountain landscape">
@@ -582,6 +696,20 @@
     }, { threshold: 0.2, rootMargin: "-30% 0px -50% 0px" });
 
     sections.forEach(s => observer.observe(s));
+
+    // --- TEXT ROTATOR (ROLL) ---
+    const words = ["Macroecology", "Biogeography", "Functional Ecology", "Conservation", "Biodiversity"];
+    let i = 0;
+    const el = document.getElementById('rotator');
+
+    setInterval(() => {
+      el.style.opacity = '0'; // Fade out
+      setTimeout(() => {
+        i = (i + 1) % words.length;
+        el.textContent = words[i]; // Change text
+        el.style.opacity = '1'; // Fade in
+      }, 300); // Matches transition duration
+    }, 3000);
 
     // --- CAROUSEL ---
     let slideIndex = 0;
