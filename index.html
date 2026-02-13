@@ -168,10 +168,36 @@
       transition: all 0.2s;
     }
     .btn-icon:hover { border-color: var(--accent-pri); color: var(--accent-pri); }
-
-    @media (max-width: 900px) {
-      .nav-links { display: none; }
+    
+    .icon-img{
+      width: 18px;
+      height: 18px;
+      display: block;
+      filter: none;
     }
+    @media (max-width: 900px) {
+  /* Keep links visible, but scrollable */
+  .nav-inner{
+    gap: 10px;
+  }
+
+  .nav-links{
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+    max-width: 55vw;
+  }
+
+  .nav-links::-webkit-scrollbar{
+    height: 0px; /* hide scrollbar on mobile */
+  }
+
+  .nav-link{
+    flex: 0 0 auto;
+    padding: 8px 12px; /* slightly bigger tap area */
+  }
+}
 
     /* ==========================================================
        HERO
@@ -374,10 +400,11 @@
       position: relative;
     }
 
-    @media (max-width: 850px) {
-      .cv-container { grid-template-columns: 1fr; height: auto; }
-      .cv-sticky { display: none; }
-    }
+   @media (max-width: 850px) {
+  .cv-container { grid-template-columns: 1fr; height: auto; }
+  .cv-sticky { display: none; }
+  .cv-scroll { height: auto; overflow: visible; padding-right: 0; }
+}
 
     .cv-scroll {
       height: 100%;
@@ -549,6 +576,31 @@
       font-size: 0.85rem;
       border-top: 1px solid var(--border);
     }
+
+    /* Extra small devices */
+@media (max-width: 520px){
+  .hero{
+    padding: 28px 0 50px;
+    gap: 24px;
+  }
+
+  .hero-main p{
+    font-size: 1.05rem;
+  }
+
+  .card{
+    padding: 16px;
+  }
+
+  .profile-img{
+    margin-bottom: 14px;
+  }
+
+  .carousel-img{
+    height: 320px;
+  }
+}
+
   </style>
 </head>
 
